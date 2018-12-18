@@ -1,3 +1,3 @@
-interface Place{
+interface Place{    // NodeとWay
 
 }

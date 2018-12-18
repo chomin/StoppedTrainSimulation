@@ -1,3 +1,5 @@
-class RailWay(override val next: Node, override val previous: Node?) : Way{
-
+class RailWay(override val previous: Node, override val next: Node, override val length: Int, val trainFreq: Int) : Way{
+    init {
+        addSelfToNodes()
+    }
 }
