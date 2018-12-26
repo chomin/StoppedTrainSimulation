@@ -1,4 +1,6 @@
-interface Way: Place{   // RailWay, Roadway, Sidewalk
+package Place
+
+interface Way{   // Place.RailWay, Place.Roadway, Place.Sidewalk
     val previous: Node
     val next: Node
     val length: Int

@@ -1,3 +1,6 @@
+import Agent.Person
+import Agent.Strategy
+import Place.*
 import java.util.*
 
 fun main(args: Array<String>) {
@@ -19,11 +22,11 @@ fun main(args: Array<String>) {
     val taxiFreq  = 0.2  // １台あたりの時間(分)
     val trainFreq = 7
 
-    val railWay1  = RailWay (startNearestStation, goalNearestStation , 20700, trainFreq)
-    val sidewalk1 = Sidewalk(start              , startNearestStation, 1000 )
-    val sidewalk2 = Sidewalk(goalNearestStation , goal               , 750  )
-    val roadway1  = Roadway (start              , startNearestStation, 1000 , 12)
-    val roadway2  = Roadway (goalNearestStation , goal               , 750  , 3 )
+    val railWay1  = RailWay(startNearestStation, goalNearestStation, 20700, trainFreq)
+    val sidewalk1 = Sidewalk(start, startNearestStation, 1000)
+    val sidewalk2 = Sidewalk(goalNearestStation, goal, 750)
+    val roadway1  = Roadway(start, startNearestStation, 1000, 12)
+    val roadway2  = Roadway(goalNearestStation, goal, 750, 3)
 
     // タクシーは一定時間ごとに、バスと電車はダイヤ(できればcsvとかを使う)に沿って生成される。(朝８時からスタート)
     // とりあえず最初は一定時間ごとに生成

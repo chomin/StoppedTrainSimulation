@@ -2,18 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44058e08-0963-4584-85cb-e08762632695" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Start.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Goal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Goal.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StoppedTrainSimulation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StoppingTrainSimulation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Agent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent/Agent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bus.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent/Bus.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Car.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent/Car.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Goal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/Goal.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RailWay.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/RailWay.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Road.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roadway.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sidewalk.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sidewalk.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Station.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Station.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vehicle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Way.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Way.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/Node.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Person.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent/Person.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/Place.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RailWay.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/RailWay.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roadway.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/Roadway.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sidewalk.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/Sidewalk.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Start.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/Start.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Station.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/Station.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Taxi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent/Taxi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Train.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent/Train.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent/Vehicle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Way.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place/Way.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,10 +33,55 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Roadway.kt">
+        <entry file="file://$PROJECT_DIR$/src/Place/Roadway.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="65">
-              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+              <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Place/Sidewalk.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="52">
+              <caret line="4" column="97" selection-start-line="4" selection-start-column="97" selection-end-line="4" selection-end-column="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Agent/Train.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="2" column="75" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Agent/Taxi.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Agent/Person.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Agent/Car.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="2" column="73" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -36,80 +89,38 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="25" column="80" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
+            <state relative-caret-position="364">
+              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#60#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vehicle.kt">
+        <entry file="file://$PROJECT_DIR$/src/Agent/Bus.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="65">
+              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RailWay.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="112" selection-start-column="112" selection-end-column="112" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Node.kt">
+        <entry file="file://$PROJECT_DIR$/src/Agent/Vehicle.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="13">
-              <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Goal.kt">
+        <entry file="file://$PROJECT_DIR$/src/Place/Way.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Start.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Station.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="7" column="9" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="7" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Way.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Place.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="31" selection-start-column="31" selection-end-column="31" />
+            <state relative-caret-position="52">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -147,6 +158,20 @@
         <option value="$PROJECT_DIR$/src/Vehicle.kt" />
         <option value="$PROJECT_DIR$/src/RailWay.kt" />
         <option value="$PROJECT_DIR$/src/Roadway.kt" />
+        <option value="$PROJECT_DIR$/src/Agent/Vehicle.kt" />
+        <option value="$PROJECT_DIR$/src/Place/RailWay.kt" />
+        <option value="$PROJECT_DIR$/src/Place/Node.kt" />
+        <option value="$PROJECT_DIR$/src/Place/Goal.kt" />
+        <option value="$PROJECT_DIR$/src/Place/Start.kt" />
+        <option value="$PROJECT_DIR$/src/Place/Station.kt" />
+        <option value="$PROJECT_DIR$/src/Place/Way.kt" />
+        <option value="$PROJECT_DIR$/src/Agent/Bus.kt" />
+        <option value="$PROJECT_DIR$/src/Place/Roadway.kt" />
+        <option value="$PROJECT_DIR$/src/Place/Sidewalk.kt" />
+        <option value="$PROJECT_DIR$/src/Agent/Train.kt" />
+        <option value="$PROJECT_DIR$/src/Agent/Taxi.kt" />
+        <option value="$PROJECT_DIR$/src/Agent/Car.kt" />
+        <option value="$PROJECT_DIR$/src/Agent/Person.kt" />
         <option value="$PROJECT_DIR$/src/Main.kt" />
       </list>
     </option>
@@ -163,29 +188,41 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="StoppedTrainSimulation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StoppedTrainSimulation" type="462c0819:PsiDirectoryNode" />
+              <item name="StoppingTrainSimulation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoppingTrainSimulation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="StoppedTrainSimulation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StoppedTrainSimulation" type="462c0819:PsiDirectoryNode" />
+              <item name="StoppingTrainSimulation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoppingTrainSimulation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoppingTrainSimulation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoppingTrainSimulation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Agent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoppingTrainSimulation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoppingTrainSimulation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Place" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545102295563" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545789272483" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -193,6 +230,14 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Issue.Navigation" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="Place" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Agent" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -208,7 +253,7 @@
   </component>
   <component name="RunManager">
     <configuration name="MainKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
-      <module name="StoppedTrainSimulation" />
+      <module name="StoppingTrainSimulation" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -243,7 +288,11 @@
       <workItem from="1544575914032" duration="41000" />
       <workItem from="1544575963430" duration="587000" />
       <workItem from="1545097167216" duration="40000" />
-      <workItem from="1545097240922" duration="4387000" />
+      <workItem from="1545097240922" duration="4517000" />
+      <workItem from="1545787337081" duration="320000" />
+      <workItem from="1545788224179" duration="235000" />
+      <workItem from="1545788466656" duration="11000" />
+      <workItem from="1545788572439" duration="676000" />
     </task>
     <task id="LOCAL-00001" summary="初コミット">
       <created>1544576202489</created>
@@ -252,24 +301,30 @@
       <option name="project" value="LOCAL" />
       <updated>1544576202489</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="モデル作成など">
+      <created>1545102342413</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1545102342413</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10227000" />
+    <option name="totallyTimeSpent" value="11599000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="744" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28109854" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29886913" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3297546" />
@@ -281,7 +336,8 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500817" side_tool="true" weight="0.3297546" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.499183" weight="0.3297546" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.499183" visible="true" weight="0.3297546" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -299,125 +355,129 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初コミット" />
-    <option name="LAST_COMMIT_MESSAGE" value="初コミット" />
+    <MESSAGE value="モデル作成など" />
+    <option name="LAST_COMMIT_MESSAGE" value="モデル作成など" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Bus.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Agent.kt">
+    <entry file="file://$PROJECT_DIR$/src/Agent/Agent.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Train.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Taxi.kt">
+    <entry file="file://$PROJECT_DIR$/src/Place/Place.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="61" selection-start-column="61" selection-end-column="61" />
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Person.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Car.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Place.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Station.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Goal.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Start.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Way.kt">
+    <entry file="file://$PROJECT_DIR$/src/Place/RailWay.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
-          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sidewalk.kt">
+    <entry file="file://$PROJECT_DIR$/src/Place/Node.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="93" selection-start-column="93" selection-end-column="93" />
+        <state relative-caret-position="52">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Node.kt">
+    <entry file="file://$PROJECT_DIR$/src/Place/Goal.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        <state relative-caret-position="52">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vehicle.kt">
+    <entry file="file://$PROJECT_DIR$/src/Place/Start.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Place/Station.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RailWay.kt">
+    <entry file="file://$PROJECT_DIR$/src/Place/Way.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="112" selection-start-column="112" selection-end-column="112" />
+        <state relative-caret-position="52">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Roadway.kt">
+    <entry file="file://$PROJECT_DIR$/src/Agent/Vehicle.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Agent/Bus.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
           <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Place/Roadway.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Place/Sidewalk.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="4" column="97" selection-start-line="4" selection-start-column="97" selection-end-line="4" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Agent/Train.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" column="75" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Agent/Car.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" column="73" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Agent/Taxi.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Agent/Person.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="25" column="80" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
+        <state relative-caret-position="364">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

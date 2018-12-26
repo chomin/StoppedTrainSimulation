@@ -1,5 +1,7 @@
-class Start() : Node{
-    override var name = "塚口（阪急）"
+package Place
+
+class Goal(): Node {
+    override var name = "六甲駅"
     override var ways = ArrayList<Way>()
         get() {
             if (field.isEmpty()) {

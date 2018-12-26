@@ -1,3 +1,5 @@
+package Agent
+
 interface Agent{
 
 }
