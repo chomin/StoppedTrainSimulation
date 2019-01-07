@@ -26,7 +26,7 @@ object Main{
         places.add(goal)
         val startNearestStation = Station("塚口（JR）", Point(200, 600))
         places.add(startNearestStation)
-        val goalNearestStation  = Station("六甲道", Point(1000, 600))
+        val goalNearestStation  = Station("六甲道駅", Point(1000, 600))
         places.add(goalNearestStation)
 
 
