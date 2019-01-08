@@ -9,6 +9,10 @@ class Goal(override var point: Point): Node {
     override var name = "六甲駅"
     override var ways = ArrayList<Way>()
 
+    override fun checkAllAgents() {}
+    override fun checkAgent() {}
+    override fun generateVehicles() {}
+
     override fun drawSelf(g: Graphics2D) {
         super.drawSelf(g)
         val radius = 20

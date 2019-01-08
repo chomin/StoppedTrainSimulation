@@ -9,6 +9,8 @@ interface Node: Place{
     var ways: ArrayList<Way>
     var point: Point
 
+    fun generateVehicles()
+
     override fun drawSelf(g: Graphics2D) {
         g.color = Color.BLACK
         g.drawString(name, point.x, point.y-30)

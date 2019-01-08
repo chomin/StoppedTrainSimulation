@@ -9,6 +9,18 @@ class Start(override var point: Point) : Node {
     override var name = "塚口（阪急）"
     override var ways = ArrayList<Way>()
 
+    override fun generateVehicles() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun checkAllAgents() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun checkAgent() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun drawSelf(g: Graphics2D) {
         super.drawSelf(g)
         val radius = 20
