@@ -9,10 +9,22 @@ import java.awt.Point
 class Station(override var name: String, override var point: Point): Node {
 
     override var ways = ArrayList<Way>()
+    val prevs = ArrayList<Way>()
+    val nexts = ArrayList<Way>()
     val maxPeopleNum = 300
     val people = ArrayList<Person>()
     val maxTrainNum = 1
     val trains = ArrayList<Train>()
+
+    init {
+        for (way in ways){
+            if (way.previous == this){
+                nexts.add(way)
+            }else{
+                prevs.add(way)
+            }
+        }
+    }
 
     override fun drawSelf(g: Graphics2D) {
         super.drawSelf(g)

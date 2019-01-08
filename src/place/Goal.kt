@@ -1,5 +1,6 @@
 package place
 
+import agent.Person
 import java.awt.Color
 import java.awt.Graphics2D
 import java.awt.Point
@@ -8,9 +9,9 @@ class Goal(override var point: Point): Node {
 
     override var name = "六甲駅"
     override var ways = ArrayList<Way>()
+    override val people = ArrayList<Person>()
 
     override fun checkAllAgents() {}
-    override fun checkAgent() {}
     override fun generateVehicles() {}
 
     override fun drawSelf(g: Graphics2D) {

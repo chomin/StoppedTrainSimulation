@@ -4,7 +4,6 @@ interface Way: Place{   // place.RailWay, place.Roadway, place.Sidewalk
     val previous: Node
     val next: Node
     val length: Int
-    var cellsAgentNum: Array<Int>    //
     val cellMaxAgents: Int
 
     fun addSelfToNodes(){

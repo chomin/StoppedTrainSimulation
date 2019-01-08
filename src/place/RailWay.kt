@@ -4,13 +4,10 @@ package place
 import agent.Train
 import java.awt.Color
 import java.awt.Graphics2D
-import kotlin.math.sqrt
-import kotlin.math.pow
 
 class RailWay(override val previous: Node, override val next: Node, override val length: Int, val trainFreq: Int) :
     Way {
 
-    override lateinit var cellsAgentNum: Array<Int>
     override val cellMaxAgents = 1
     val cellNum: Int = length/1000
     var trains: Array<ArrayList<Train>>
@@ -24,7 +21,6 @@ class RailWay(override val previous: Node, override val next: Node, override val
             println("駅に結びついていません!")
         }
 
-        cellsAgentNum = Array(cellNum) { 0 }
         trains = Array(cellNum) { ArrayList<Train>() }
     }
 
@@ -32,11 +28,23 @@ class RailWay(override val previous: Node, override val next: Node, override val
         for (i in 0 until cellNum){
             val index = cellNum-i-1 // cellのindex.後ろから探索.
             if(index == cellNum-1) { // 最後のマス
-                for(j in 0 until trains[index].size){
-                    if (nextStation.trains.size < nextStation.maxTrainNum){
-                        // 電車を投げる
+                val removingTrains = ArrayList<Train>()
+                for(train in trains[index]){
+                    if (nextStation.trains.size < nextStation.maxTrainNum){ // 電車を進める
+                        nextStation.trains.add(train)
+                        removingTrains.add(train)
                     }
                 }
+                for(train in removingTrains){ trains[index].remove(train) } // 移動したものを除去
+            } else {
+                val removingTrains = ArrayList<Train>()
+                for(train in trains[index]){
+                    if (trains[index+1].size < cellMaxAgents){ // 電車を進める
+                        trains[index+1].add(train)
+                        removingTrains.add(train)
+                    }
+                }
+                for(train in removingTrains){ trains[index].remove(train) } // 移動したものを除去
             }
 
 
@@ -44,12 +52,8 @@ class RailWay(override val previous: Node, override val next: Node, override val
         }
     }
 
-    override fun checkAgent() {
-
-    }
-
     override fun drawSelf(g: Graphics2D) {
-        val half_width = 7.0
+        val halfWidth = 7.0
         val x1 = previous.point.x.toDouble()    // 添字1がprevious側
         val x2 = next.point.x.toDouble()
         val y1 = previous.point.y.toDouble()
@@ -77,13 +81,13 @@ class RailWay(override val previous: Node, override val next: Node, override val
 //        val X2m = (b2.pow(2) - sqrt(b2.pow(2) - 4*a12*c2)) / 2*a12
 //        val Y2m = alpha*X2m - alpha*x2 + y2
         val X1p = x1
-        val Y1p = y1 + half_width
+        val Y1p = y1 + halfWidth
         val X1m = x1
-        val Y1m = y1 - half_width
+        val Y1m = y1 - halfWidth
         val X2p = x2
-        val Y2p = y2 + half_width
+        val Y2p = y2 + halfWidth
         val X2m = x2
-        val Y2m = y2 - half_width
+        val Y2m = y2 - halfWidth
 
         g.color = Color.BLACK
         g.drawLine(X1p.toInt(), Y1p.toInt(), X1m.toInt(), Y1m.toInt())

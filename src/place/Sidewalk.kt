@@ -1,23 +1,51 @@
 package place
 
-import agent.Car
 import agent.Person
 import java.awt.Color
 import java.awt.Graphics2D
 
 class Sidewalk(override val previous: Node, override val next: Node, override val length: Int) : Way {
 
-    override lateinit var cellsAgentNum: Array<Int>
-    var agents = ArrayList<Person>()
-    override val cellMaxAgents = 1
+    override val cellMaxAgents = 3
     var people: Array<ArrayList<Person>>
+    val cellNum = length/100
 
     init {
         addSelfToNodes()
-        val cellNum = length/100
-        cellsAgentNum = Array(cellNum) { 0 }
         people = Array(cellNum) { ArrayList<Person>() }
     }
+
+    override fun checkAllAgents() {
+        for (i in 0 until cellNum){
+            val index = cellNum-i-1 // cellのindex.後ろから探索.
+            if(index == cellNum-1) { // 最後のマス
+                val removingPeople = ArrayList<Person>()
+                for(person in people[index]){
+                    if (next is Goal){ // 人がnextに移動
+                        next.people.add(person)
+                        removingPeople.add(person)
+                    } else { // nextはStation
+                        val nextSta = next as Station
+                        if (nextSta.people.size < nextSta.maxPeopleNum){
+                            next.people.add(person)
+                            removingPeople.add(person)
+                        }
+                    }
+                }
+                for(person in removingPeople){ people[index].remove(person) } // 移動したものを消去
+            } else {
+                val removingPeople = ArrayList<Person>()
+                for(person in people[index]){
+                    if (people[index+1].size < cellMaxAgents){ // 人を進める
+                        people[index+1].add(person)
+                        removingPeople.add(person)
+                    }
+                }
+                for(person in removingPeople){ people[index].remove(person) } // 移動したものを除去
+            }
+        }
+    }
+
     override fun drawSelf(g: Graphics2D) {
 
         val width = 10.0

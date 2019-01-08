@@ -1,6 +1,6 @@
 package place
 
-import agent.Car
+import agent.Train
 import agent.Vehicle
 import java.awt.Color
 import java.awt.Graphics2D
@@ -8,20 +8,46 @@ import java.awt.Graphics2D
 class Roadway(override val previous: Node, override val next: Node, override val length: Int, val busFreq: Int) :
     Way {
 
-    override lateinit var cellsAgentNum: Array<Int>
-    var agents = ArrayList<Vehicle>()
+
     override val cellMaxAgents = 1
-    var cars: Array<ArrayList<Car>>
+    val cellNum = length/100
+    var vehicles: Array<ArrayList<Vehicle>>
 
     init {
         addSelfToNodes()
-        val cellNum = length/100
-        cellsAgentNum = Array(cellNum) { 0 }
-        cars = Array(cellNum) { ArrayList<Car>() }
+        vehicles = Array(cellNum) { ArrayList<Vehicle>() }
     }
 
-    override fun checkAllAgents() {}
-    override fun checkAgent() {}
+    override fun checkAllAgents() {
+        for (i in 0 until cellNum){
+            val index = cellNum-i-1 // cellのindex.後ろから探索.
+            if(index == cellNum-1) { // 最後のマス
+                val removingVehicles = ArrayList<Vehicle>()
+                for(vehicle in vehicles[index]){
+                    if (next is Goal){ // 人がnextに移動し、車は消滅
+                        vehicle.people.forEach { next.people.add(it) }
+                        removingVehicles.add(vehicle)
+                    } else { // nextはStation
+                        val nextSta = next as Station
+                        if (nextSta.people.size + vehicle.people.size <= nextSta.maxPeopleNum){
+                            vehicle.people.forEach { next.people.add(it) }
+                            removingVehicles.add(vehicle)
+                        }
+                    }
+                }
+                for(vehicle in removingVehicles){ vehicles[index].remove(vehicle) } // 車を消滅させる
+            } else {
+                val removingVehicles = ArrayList<Vehicle>()
+                for(vehicle in vehicles[index]){
+                    if (vehicles[index+1].size < cellMaxAgents){ // 車を進める
+                        vehicles[index+1].add(vehicle)
+                        removingVehicles.add(vehicle)
+                    }
+                }
+                for(vehicle in removingVehicles){ vehicles[index].remove(vehicle) } // 移動したものを除去
+            }
+        }
+    }
 
     override fun drawSelf(g: Graphics2D) {
         val width = 10.0

@@ -1,7 +1,7 @@
 package agent
 
 interface Vehicle {
-    var agents: ArrayList<Person>
-    val maxPeople: Int
-    val speed: Int
+    var people: ArrayList<Person>
+//    val maxPeople: Int
+//    val speed: Int
 }

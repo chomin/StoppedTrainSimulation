@@ -1,6 +1,9 @@
 package agent
 
-class Bus(override var agents: ArrayList<Person>, override val speed: Int) : Vehicle {
-    override val maxPeople = 50
+class Bus(override var people: ArrayList<Person>) : Vehicle {
+    companion object {
+        val maxPeople = 50
+        val speed = 10
+    }
 
 }
