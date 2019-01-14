@@ -11,7 +11,8 @@ interface Node: Place{
     var point: Point
     val people: ArrayList<Person>
 
-    fun generateVehicles()
+    fun generateCars(num: Int)
+    fun generateTrains(num: Int)
 
     override fun drawSelf(g: Graphics2D) {
         g.color = Color.BLACK
