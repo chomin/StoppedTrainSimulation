@@ -4,6 +4,8 @@ import agent.Train
 import agent.Vehicle
 import java.awt.Color
 import java.awt.Graphics2D
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 class Roadway(override val previous: Node, override val next: Node, override val length: Int, val busFreq: Int) :
     Way {
@@ -53,23 +55,26 @@ class Roadway(override val previous: Node, override val next: Node, override val
         val width = 10.0
         val x1 = previous.point.x.toDouble()    // 添字1がprevious側
         val x2 = next.point.x.toDouble()
-        val y1 = previous.point.y.toDouble()
-        val y2 = next.point.y.toDouble()
+        var y1 = previous.point.y.toDouble()
+        var y2 = next.point.y.toDouble()
+        y1 += if (y1<y2) Node.radius else -Node.radius
+        y2 -= if (y1<y2) Node.radius else -Node.radius
+        val wayLength = sqrt((x2-x1).pow(2) + (y2-y1).pow(2)).toInt()
 
-        val X1p = x1 + width
-        val Y1p = y1
-        val X1m = x1+1
-        val Y1m = y1
-        val X2p = x2 + width
-        val Y2p = y2
-        val X2m = x2+1
-        val Y2m = y2
-
-        g.color = Color.YELLOW
-        g.drawLine(X1p.toInt(), Y1p.toInt(), X1m.toInt(), Y1m.toInt())
-        g.drawLine(X2p.toInt(), Y2p.toInt(), X2m.toInt(), Y2m.toInt())
-        g.drawLine(X1p.toInt(), Y1p.toInt(), X2p.toInt(), Y2p.toInt())
-        g.drawLine(X1m.toInt(), Y1m.toInt(), X2m.toInt(), Y2m.toInt())
+//        val X1p = x1 + width
+//        val Y1p = y1
+//        val X1m = x1+1
+//        val Y1m = y1
+//        val X2p = x2 + width
+//        val Y2p = y2
+//        val X2m = x2+1
+//        val Y2m = y2
+//
+//        g.color = Color.YELLOW
+//        g.drawLine(X1p.toInt(), Y1p.toInt(), X1m.toInt(), Y1m.toInt())
+//        g.drawLine(X2p.toInt(), Y2p.toInt(), X2m.toInt(), Y2m.toInt())
+//        g.drawLine(X1p.toInt(), Y1p.toInt(), X2p.toInt(), Y2p.toInt())
+//        g.drawLine(X1m.toInt(), Y1m.toInt(), X2m.toInt(), Y2m.toInt())
 
         g.color = Color.BLACK
         var count = 0
@@ -77,5 +82,22 @@ class Roadway(override val previous: Node, override val next: Node, override val
             count += cell.size
         }
         g.drawString("走行車の総数: " + count, ((x1+x2)/2 + 20).toInt(), ((y1+y2)/2).toInt())
+
+        // cellの表示
+        val cellDotSize = wayLength/vehicles.size
+        for ((index, cell) in vehicles.withIndex()){
+//            val celly = y1 + index * cellDotSize // TODO: いい感じになるように座標計算
+            val celly = if(y1<y2) y1 + index * cellDotSize else y1 - (index+1) * cellDotSize
+
+            val ratio = cell.size/cellMaxAgents.toDouble()
+            when{
+                ratio < 0.3 -> g.color = Color.BLUE
+                ratio > 0.7 -> g.color = Color.RED
+                else        -> g.color = Color.ORANGE
+            }
+            g.fillRect(x1.toInt(), celly.toInt(), width.toInt(), cellDotSize)
+            g.color = Color.YELLOW
+            g.drawRect(x1.toInt(), celly.toInt(), width.toInt(), cellDotSize)
+        }
     }
 }

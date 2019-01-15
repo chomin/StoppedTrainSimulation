@@ -82,9 +82,8 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
 
     override fun drawSelf(g: Graphics2D) {
         super.drawSelf(g)
-        val radius = 20
         g.color = Color.BLUE
-        g.fillOval(point.x-radius, point.y-radius, radius*2, radius*2)
+        g.fillOval(point.x-Node.radius, point.y-Node.radius, Node.radius*2, Node.radius*2)
     }
 
 }

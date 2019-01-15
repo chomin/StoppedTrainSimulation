@@ -131,8 +131,7 @@ class Station(override var name: String, override var point: Point): Node {
         super.drawSelf(g)
         g.color = Color.BLACK
         g.drawString("電車の数: " + waitingTrains.size, point.x+10, point.y+45)
-        val radius = 20
         g.color = Color.GREEN
-        g.fillOval(point.x-radius, point.y-radius, radius*2, radius*2)
+        g.fillOval(point.x-Node.radius, point.y-Node.radius, Node.radius*2, Node.radius*2)
     }
 }

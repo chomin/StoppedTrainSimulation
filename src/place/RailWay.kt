@@ -56,8 +56,8 @@ class RailWay(override val previous: Node, override val next: Node, override val
 
     override fun drawSelf(g: Graphics2D) {
         val halfWidth = 7.0
-        val x1 = previous.point.x.toDouble()    // 添字1がprevious側
-        val x2 = next.point.x.toDouble()
+        val x1 = previous.point.x.toDouble() + Node.radius   // 添字1がprevious側
+        val x2 = next.point.x.toDouble() - Node.radius
         val y1 = previous.point.y.toDouble()
         val y2 = next.point.y.toDouble()
         val wayLength = sqrt((x2-x1).pow(2) + (y2-y1).pow(2)).toInt()
@@ -83,25 +83,26 @@ class RailWay(override val previous: Node, override val next: Node, override val
 //        val Y2p = alpha*X2p - alpha*x2 + y2
 //        val X2m = (b2.pow(2) - sqrt(b2.pow(2) - 4*a12*c2)) / 2*a12
 //        val Y2m = alpha*X2m - alpha*x2 + y2
-        val X1p = x1
-        val Y1p = y1 + halfWidth
-        val X1m = x1
-        val Y1m = y1 - halfWidth
-        val X2p = x2
-        val Y2p = y2 + halfWidth
-        val X2m = x2
-        val Y2m = y2 - halfWidth
-
-        g.color = Color.BLACK
-        g.drawLine(X1p.toInt(), Y1p.toInt(), X1m.toInt(), Y1m.toInt())
-        g.drawLine(X2p.toInt(), Y2p.toInt(), X2m.toInt(), Y2m.toInt())
-        g.drawLine(X1p.toInt(), Y1p.toInt(), X2p.toInt(), Y2p.toInt())
-        g.drawLine(X1m.toInt(), Y1m.toInt(), X2m.toInt(), Y2m.toInt())
+//        val X1p = x1
+//        val Y1p = y1 + halfWidth
+//        val X1m = x1
+//        val Y1m = y1 - halfWidth
+//        val X2p = x2
+//        val Y2p = y2 + halfWidth
+//        val X2m = x2
+//        val Y2m = y2 - halfWidth
+//
+//        g.color = Color.BLACK
+//        g.drawLine(X1p.toInt(), Y1p.toInt(), X1m.toInt(), Y1m.toInt())
+//        g.drawLine(X2p.toInt(), Y2p.toInt(), X2m.toInt(), Y2m.toInt())
+//        g.drawLine(X1p.toInt(), Y1p.toInt(), X2p.toInt(), Y2p.toInt())
+//        g.drawLine(X1m.toInt(), Y1m.toInt(), X2m.toInt(), Y2m.toInt())
 
         var count = 0
         for (cell in trains){
             count += cell.size
         }
+        g.color = Color.BLACK
         g.drawString("電車の総数: " + count, ((x1+x2)/2).toInt(), ((y1+y2)/2 - 20).toInt())
 
         // cellの表示

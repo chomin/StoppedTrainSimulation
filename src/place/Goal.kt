@@ -20,9 +20,8 @@ class Goal(override var point: Point): Node {
 
     override fun drawSelf(g: Graphics2D) {
         super.drawSelf(g)
-        val radius = 20
         g.color = Color.RED
-        g.fillOval(point.x-radius, point.y-radius, radius*2, radius*2)
+        g.fillOval(point.x-Node.radius, point.y-Node.radius, Node.radius*2, Node.radius*2)
     }
 
 

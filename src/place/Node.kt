@@ -7,6 +7,11 @@ import java.awt.Graphics2D
 import java.awt.Point
 
 interface Node: Place{
+
+    companion object {
+        val radius = 20
+    }
+
     var name: String
     var ways: ArrayList<Way>
     var point: Point
