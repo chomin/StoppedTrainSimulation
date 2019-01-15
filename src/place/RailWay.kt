@@ -4,6 +4,8 @@ package place
 import agent.Train
 import java.awt.Color
 import java.awt.Graphics2D
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 class RailWay(override val previous: Node, override val next: Node, override val length: Int, val trainFreq: Int) :
     Way {
@@ -58,6 +60,7 @@ class RailWay(override val previous: Node, override val next: Node, override val
         val x2 = next.point.x.toDouble()
         val y1 = previous.point.y.toDouble()
         val y2 = next.point.y.toDouble()
+        val wayLength = sqrt((x2-x1).pow(2) + (y2-y1).pow(2)).toInt()
 //        if (y1==y2) {
 //            println("高さ同じTODO")
 //        }
@@ -100,5 +103,22 @@ class RailWay(override val previous: Node, override val next: Node, override val
             count += cell.size
         }
         g.drawString("電車の総数: " + count, ((x1+x2)/2).toInt(), ((y1+y2)/2 - 20).toInt())
+
+        // cellの表示
+        val cellDotSize = wayLength/trains.size
+        for ((index, cell) in trains.withIndex()){
+            val cellx = x1 + index * cellDotSize // TODO: いい感じになるように座標計算
+
+            val ratio = cell.size/cellMaxAgents.toDouble()
+            when{
+                ratio < 0.3 -> g.color = Color.BLUE
+                ratio > 0.7 -> g.color = Color.RED
+                else        -> g.color = Color.ORANGE
+            }
+            g.fillRect(cellx.toInt(), y1.toInt(), cellDotSize, 20)
+            g.color = Color.BLACK
+            g.drawRect(cellx.toInt(), y1.toInt(), cellDotSize, 20)
+        }
+
     }
 }

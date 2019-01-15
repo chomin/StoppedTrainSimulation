@@ -60,9 +60,9 @@ object Main{
                 goalNearestStation.generateTrains(0)
             }
             goalNearestStation.checkAllAgents()
-//            railWay1.checkAllAgents()
+            railWay1.checkAllAgents()
             if (time%10 == 0){
-//                startNearestStation.generateCars(0)
+                startNearestStation.generateCars(0)
                 startNearestStation.generateTrains(1)
             }
             startNearestStation.checkAllAgents()
