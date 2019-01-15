@@ -94,5 +94,11 @@ class RailWay(override val previous: Node, override val next: Node, override val
         g.drawLine(X2p.toInt(), Y2p.toInt(), X2m.toInt(), Y2m.toInt())
         g.drawLine(X1p.toInt(), Y1p.toInt(), X2p.toInt(), Y2p.toInt())
         g.drawLine(X1m.toInt(), Y1m.toInt(), X2m.toInt(), Y2m.toInt())
+
+        var count = 0
+        for (cell in trains){
+            count += cell.size
+        }
+        g.drawString("電車の総数: " + count, ((x1+x2)/2).toInt(), ((y1+y2)/2 - 20).toInt())
     }
 }

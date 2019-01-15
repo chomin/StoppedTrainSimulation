@@ -61,17 +61,17 @@ object Main{
 //            }
 //            goalNearestStation.checkAllAgents()
 //            railWay1.checkAllAgents()
-//            if (time%10 == 0){
+            if (time%10 == 0){
 //                startNearestStation.generateCars(0)
-//                startNearestStation.generateTrains(1)
-//            }
-//            startNearestStation.checkAllAgents()
-//            roadway1.checkAllAgents()
-//            sidewalk1.checkAllAgents()
-//            if (time%10 == 0){
-//                start.generateCars(3)
-//            }
-//            start.checkAllAgents()
+                startNearestStation.generateTrains(1)
+            }
+            startNearestStation.checkAllAgents()
+            roadway1.checkAllAgents()
+            sidewalk1.checkAllAgents()
+            if (time%10 == 0){
+                start.generateCars(3)
+            }
+            start.checkAllAgents()
 
         }
 

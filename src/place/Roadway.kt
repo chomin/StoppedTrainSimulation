@@ -70,5 +70,12 @@ class Roadway(override val previous: Node, override val next: Node, override val
         g.drawLine(X2p.toInt(), Y2p.toInt(), X2m.toInt(), Y2m.toInt())
         g.drawLine(X1p.toInt(), Y1p.toInt(), X2p.toInt(), Y2p.toInt())
         g.drawLine(X1m.toInt(), Y1m.toInt(), X2m.toInt(), Y2m.toInt())
+
+        g.color = Color.BLACK
+        var count = 0
+        for (cell in vehicles){
+            count += cell.size
+        }
+        g.drawString("走行車の総数: " + count, ((x1+x2)/2 + 20).toInt(), ((y1+y2)/2).toInt())
     }
 }
