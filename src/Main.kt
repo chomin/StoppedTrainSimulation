@@ -53,13 +53,13 @@ object Main{
         for (time in 0 until maxTime){  // 分単位
             // Placeが持つ全エージェントを調べる
             // (goal), 道2つ, 駅, 線路, 駅, 道2つ, startの順で調べる.
-//            roadway2.checkAllAgents()
-//            sidewalk2.checkAllAgents()
-//            if (time%10 == 0){
-//                goalNearestStation.generateCars(3)
-//                goalNearestStation.generateTrains(0)
-//            }
-//            goalNearestStation.checkAllAgents()
+            roadway2.checkAllAgents()
+            sidewalk2.checkAllAgents()
+            if (time%10 == 0){
+                goalNearestStation.generateCars(3)
+                goalNearestStation.generateTrains(0)
+            }
+            goalNearestStation.checkAllAgents()
 //            railWay1.checkAllAgents()
             if (time%10 == 0){
 //                startNearestStation.generateCars(0)

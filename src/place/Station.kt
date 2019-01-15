@@ -11,22 +11,23 @@ class Station(override var name: String, override var point: Point): Node {
 
     override var ways = ArrayList<Way>()
     override val people = ArrayList<Person>()
-    val prevs = ArrayList<Way>()
+    val prevs = ArrayList<Way>()    // waysのノードの代入の都合上, 後でway側から初期化
     val nexts = ArrayList<Way>()
     val maxPeopleNum = 300
     val maxTrainNum = 1
     val waitingTrains   = ArrayList<Pair<RailWay, Train   >>()
     override val waitingVehicles = ArrayList<Pair<Roadway, Vehicle >>()
 
-    init {
-        for (way in ways){
-            if (way.previous == this){
-                nexts.add(way)
-            }else{
-                prevs.add(way)
-            }
-        }
-    }
+
+//    init {
+//        for (way in ways){
+//            if (way.previous == this){
+//                nexts.add(way)
+//            }else{
+//                prevs.add(way)
+//            }
+//        }
+//    }
 
     override fun generateCars(num: Int) {   // TODO: 将来的には人の行先によって電車に乗るか車に乗るかを歩くかを決める.
         val nextRoads = nexts.filter { it is Roadway }.map { it as Roadway }
@@ -61,6 +62,7 @@ class Station(override var name: String, override var point: Point): Node {
 
     override fun generateTrains(num: Int) {
         val nextRails = nexts.filter { it is RailWay }.map { it as RailWay }
+
         loop@ for (railWay in nextRails) {   // すべての道に対しnumずつ生成
             for (temp in 0 until num){
                 if (waitingTrains.size >= maxTrainNum) {
@@ -123,8 +125,6 @@ class Station(override var name: String, override var point: Point): Node {
             }
         }
         for (trainPair in removingTP){ waitingTrains.remove(trainPair) }
-
-
     }
 
     override fun drawSelf(g: Graphics2D) {
