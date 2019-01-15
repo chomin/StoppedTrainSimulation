@@ -1,3 +1,4 @@
+import place.Node
 import place.Place
 import java.awt.BorderLayout
 import javax.swing.JButton
@@ -5,13 +6,11 @@ import javax.swing.JFrame
 import javax.swing.JPanel
 import javax.swing.border.EmptyBorder
 
-class SimulationFrame internal constructor(private val places: ArrayList<Place>): JFrame(){
+class SimulationFrame internal constructor(private val places: ArrayList<Place>): JFrame(), Runnable{
 
     private val contentPane: JPanel
-    companion object {
-//        val textArea = JTextArea()
-    }
 
+    val view = SimulationView(places)
 
     init {
         defaultCloseOperation = JFrame.EXIT_ON_CLOSE
@@ -21,42 +20,65 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
         setContentPane(contentPane)
         contentPane.layout = BorderLayout(0, 0)
 
-        val view = SimulationView(places)
-//        pointsView.addMouseListener(object : MouseAdapter() {
-//            override fun mousePressed(e: MouseEvent?) {
-//                pointsView.mousePressed(e!!.point)
-//            }
-//
-//            override fun mouseReleased(e: MouseEvent?) {
-//                pointsView.mouseReleased()
-//            }
-//        })
+
+
         contentPane.add(view, BorderLayout.CENTER)
 
         val panel = JPanel()
         contentPane.add(panel, BorderLayout.SOUTH)
 
-//        val resetButton = JButton("RESET")
-//        resetButton.addActionListener { view.reset() }
-//        panel.add(resetButton)
-//
-//        val solveButton = JButton("SOLVE")
-//        solveButton.addActionListener { view.solve() }
-//        panel.add(solveButton)
-//
-//        val saveButton = JButton("SAVE")
-//        saveButton.addActionListener { view.save() }
-//        panel.add(saveButton)
-//
-//        val loadButton = JButton("LOAD")
-//        loadButton.addActionListener { view.load() }
-//        panel.add(loadButton)
-//
-//
-//        contentPane.add(textArea, BorderLayout.NORTH)
-//        textArea.columns = 20
-//        textArea.lineWrap = true
     }
 
+    override fun run() {
+        for (time in 0 until Main.maxTime){  // 分単位
+            // Placeが持つ全エージェントを調べる
+            // (goal), 道2つ, 駅, 線路, 駅, 道2つ, startの順で調べる.
+            for (place in places.reversed()){
+                place.checkAllAgents()
+                if (time%10 == 0 && place is Node){
+                    val node = place as Node
+                    when(node.name){
+                        "六甲道駅" -> {
+                            node.generateCars  (3)
+                            node.generateTrains(0)
+                        }
+                        "塚口（JR）" -> {
+                            node.generateCars  (0)
+                            node.generateTrains(1)
+                        }
+                        "塚口（阪急）" -> {
+                            node.generateCars  (3)
+                        }
+                    }
+                }
 
+                view.repaint()
+
+                try {
+                    Thread.sleep(1000L)
+                } catch (_ex: Exception) {
+                }
+            }
+//            roadway2.checkAllAgents()
+//            sidewalk2.checkAllAgents()
+//            if (time%10 == 0){
+//                goalNearestStation.generateCars(3)
+//                goalNearestStation.generateTrains(0)
+//            }
+//            goalNearestStation.checkAllAgents()
+//            railWay1.checkAllAgents()
+//            if (time%10 == 0){
+//                startNearestStation.generateCars(0)
+//                startNearestStation.generateTrains(1)
+//            }
+//            startNearestStation.checkAllAgents()
+//            roadway1.checkAllAgents()
+//            sidewalk1.checkAllAgents()
+//            if (time%10 == 0){
+//                start.generateCars(3)
+//            }
+//            start.checkAllAgents()
+
+        }
+    }
 }

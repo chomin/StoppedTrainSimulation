@@ -8,12 +8,13 @@ import kotlin.collections.ArrayList
 
 object Main{
 
+    val maxTime = 180   // とりあえず3時間
+
     @JvmStatic
     fun main(args: Array<String>) {
 
         val rand = Random()
 
-        val maxTime = 180   // とりあえず3時間
         val people = ArrayList<Person>()   // 250*8が止まった駅からスタート
         for (i in 0 until 250*8){
             people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.Normal))
@@ -50,30 +51,7 @@ object Main{
         // とりあえず最初は一定時間ごとに生成
 
 
-        for (time in 0 until maxTime){  // 分単位
-            // Placeが持つ全エージェントを調べる
-            // (goal), 道2つ, 駅, 線路, 駅, 道2つ, startの順で調べる.
-            roadway2.checkAllAgents()
-            sidewalk2.checkAllAgents()
-            if (time%10 == 0){
-                goalNearestStation.generateCars(3)
-                goalNearestStation.generateTrains(0)
-            }
-            goalNearestStation.checkAllAgents()
-            railWay1.checkAllAgents()
-            if (time%10 == 0){
-                startNearestStation.generateCars(0)
-                startNearestStation.generateTrains(1)
-            }
-            startNearestStation.checkAllAgents()
-            roadway1.checkAllAgents()
-            sidewalk1.checkAllAgents()
-            if (time%10 == 0){
-                start.generateCars(3)
-            }
-            start.checkAllAgents()
 
-        }
 
         // 可視化
         EventQueue.invokeLater {
