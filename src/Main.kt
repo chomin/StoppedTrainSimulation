@@ -20,7 +20,7 @@ object Main{
         }
         // まずノードを生成し、道を生成した後ノードに道情報をセット(道のイニシャライザでセット)。
         val places = ArrayList<Place>()
-        val start = Start(Point(200, 200))
+        val start = Start(Point(200, 200), people)
         places.add(start)
         val goal  = Goal(Point(1000, 220))
         places.add(goal)
@@ -53,19 +53,26 @@ object Main{
         for (time in 0 until maxTime){  // 分単位
             // Placeが持つ全エージェントを調べる
             // (goal), 道2つ, 駅, 線路, 駅, 道2つ, startの順で調べる.
-            roadway2.checkAllAgents()
-            sidewalk2.checkAllAgents()
-            goalNearestStation.checkAllAgents()
-            railWay1.checkAllAgents()
-            startNearestStation.checkAllAgents()
-            roadway1.checkAllAgents()
-            sidewalk1.checkAllAgents()
-            start.checkAllAgents()
+//            roadway2.checkAllAgents()
+//            sidewalk2.checkAllAgents()
+//            if (time%10 == 0){
+//                goalNearestStation.generateCars(3)
+//                goalNearestStation.generateTrains(0)
+//            }
+//            goalNearestStation.checkAllAgents()
+//            railWay1.checkAllAgents()
+//            if (time%10 == 0){
+//                startNearestStation.generateCars(0)
+//                startNearestStation.generateTrains(1)
+//            }
+//            startNearestStation.checkAllAgents()
+//            roadway1.checkAllAgents()
+//            sidewalk1.checkAllAgents()
+//            if (time%10 == 0){
+//                start.generateCars(3)
+//            }
+//            start.checkAllAgents()
 
-            // 一定時間ごとに乗り物を生成
-            if (time%10 == 0){
-
-            }
         }
 
         // 可視化

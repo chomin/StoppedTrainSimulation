@@ -30,8 +30,8 @@ class RailWay(override val previous: Node, override val next: Node, override val
             if(index == cellNum-1) { // 最後のマス
                 val removingTrains = ArrayList<Train>()
                 for(train in trains[index]){
-                    if (nextStation.trains.size < nextStation.maxTrainNum){ // 電車を進める
-                        nextStation.trains.add(train)
+                    if (nextStation.waitingTrains.size < nextStation.maxTrainNum){ // 電車を進める
+                        nextStation.waitingTrains.add(Pair(this, train))    // TODO: 行き先に応じたRailWay
                         removingTrains.add(train)
                     }
                 }

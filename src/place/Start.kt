@@ -10,13 +10,13 @@ import java.awt.Point
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Start(override var point: Point) : Node {
+class Start(override var point: Point, override val people: ArrayList<Person>) : Node {// 最初はみんなpeopleに入るが、バスに乗ると取り除かれる。
 
 
     override var name = "塚口（阪急）"
     override var ways = ArrayList<Way>()
-    override val people = ArrayList<Person>()   // 最初はみんなここに入るが、バスに乗ると取り除かれる。
-    private val waitingVehicles = ArrayList<Pair<Roadway, Vehicle>>()
+
+    override val waitingVehicles = ArrayList<Pair<Roadway, Vehicle>>()
 
     override fun generateCars(num: Int) {
         val roads = ways.filter { it is Roadway }.map { it as Roadway }
