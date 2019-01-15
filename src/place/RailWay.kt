@@ -115,9 +115,9 @@ class RailWay(override val previous: Node, override val next: Node, override val
                 ratio > 0.7 -> g.color = Color.RED
                 else        -> g.color = Color.ORANGE
             }
-            g.fillRect(cellx.toInt(), y1.toInt(), cellDotSize, 20)
+            g.fillRect(cellx.toInt(), y1.toInt()-10, cellDotSize, 20)
             g.color = Color.BLACK
-            g.drawRect(cellx.toInt(), y1.toInt(), cellDotSize, 20)
+            g.drawRect(cellx.toInt(), y1.toInt()-10, cellDotSize, 20)
         }
 
     }

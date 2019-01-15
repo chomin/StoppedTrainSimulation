@@ -22,11 +22,11 @@ object Main{
         val places = ArrayList<Place>()
         val start = Start(Point(200, 200), people)
         places.add(start)
-        val goal  = Goal(Point(1000, 220))
+        val goal  = Goal(Point(1000, 200))
         places.add(goal)
         val startNearestStation = Station("塚口（JR）", Point(200, 600))
         places.add(startNearestStation)
-        val goalNearestStation  = Station("六甲道駅", Point(1000, 650))
+        val goalNearestStation  = Station("六甲道駅", Point(1000, 600))
         places.add(goalNearestStation)
 
 
