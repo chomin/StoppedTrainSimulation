@@ -82,6 +82,13 @@ class Station(override var name: String, override var point: Point): Node {
     }
 
     override fun checkAllAgents() {
+        if(name == "塚口（JR）"){
+            println("駅の人工増減")
+            println(people.size)
+        }
+
+
+
         // 車と歩行者出発→電車出発→電車から人を(無理やり)下ろす
         val removingVP = ArrayList<Pair<Roadway, Vehicle>>()
         for (vehiclePair in waitingVehicles){
@@ -125,6 +132,10 @@ class Station(override var name: String, override var point: Point): Node {
             }
         }
         for (trainPair in removingTP){ waitingTrains.remove(trainPair) }
+
+        if(name == "塚口（JR）"){
+            println(people.size)
+        }
     }
 
     override fun drawSelf(g: Graphics2D) {

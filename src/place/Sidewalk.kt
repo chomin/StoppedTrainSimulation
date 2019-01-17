@@ -8,7 +8,7 @@ import kotlin.math.sqrt
 
 class Sidewalk(override val previous: Node, override val next: Node, override val length: Int) : Way {
 
-    override val cellMaxAgents = 3
+    override val cellMaxAgents = 100
     var people: Array<ArrayList<Person>>
     val cellNum = length/100
 
@@ -22,6 +22,11 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
             val index = cellNum-i-1 // cellのindex.後ろから探索.
             if(index == cellNum-1) { // 最後のマス
                 val removingPeople = ArrayList<Person>()
+
+                if (next is Station) {
+                    println("SidewalkからStationへ")
+                    println(next.people.size)
+                }
                 for(person in people[index]){
                     if (next is Goal){ // 人がnextに移動
                         next.people.add(person)
@@ -29,12 +34,19 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
                     } else { // nextはStation
                         val nextSta = next as Station
                         if (nextSta.people.size < nextSta.maxPeopleNum){
-                            next.people.add(person)
+                            nextSta.people.add(person)
                             removingPeople.add(person)
                         }
                     }
+                    val t = next.people.size
                 }
                 for(person in removingPeople){ people[index].remove(person) } // 移動したものを消去
+                if (next is Station) {
+                    println(next.people.size)
+                }
+
+
+
             } else {
                 val removingPeople = ArrayList<Person>()
                 for(person in people[index]){
@@ -79,7 +91,7 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
         for (cell in people){
             count += cell.size
         }
-        g.drawString("歩行者の総数: " + count, ((x1+x2)/2 - 120).toInt(), ((y1+y2)/2).toInt())
+        g.drawString("歩行者の総数: " + count, ((x1+x2)/2 - 130).toInt(), ((y1+y2)/2).toInt())
 
         // cellの表示
         val cellDotSize = wayLength/people.size

@@ -1,5 +1,4 @@
-import place.Node
-import place.Place
+import place.*
 import java.awt.BorderLayout
 import javax.swing.JButton
 import javax.swing.JFrame
@@ -9,6 +8,7 @@ import javax.swing.border.EmptyBorder
 class SimulationFrame internal constructor(private val places: ArrayList<Place>): JFrame(), Runnable{
 
     private val contentPane: JPanel
+    private var kissOfDeath = false
 
     val view = SimulationView(places)
 
@@ -30,10 +30,17 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
     }
 
     override fun run() {
+//        var time = 0
+//        while (kissOfDeath){
+//
+//        }
         for (time in 0 until Main.maxTime){  // 分単位
             // Placeが持つ全エージェントを調べる
             // (goal), 道2つ, 駅, 線路, 駅, 道2つ, startの順で調べる.
             for (place in places.reversed()){
+
+                if(place is Roadway) continue
+
                 place.checkAllAgents()
                 if (time%10 == 0 && place is Node){
                     val node = place as Node
@@ -51,13 +58,14 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
                         }
                     }
                 }
+            }
 
-                view.repaint()
+            view.repaint()
 
-                try {
-                    Thread.sleep(1000L)
-                } catch (_ex: Exception) {
-                }
+            try {
+                Thread.sleep(1000L)
+
+            } catch (_ex: Exception) {
             }
 //            roadway2.checkAllAgents()
 //            sidewalk2.checkAllAgents()
