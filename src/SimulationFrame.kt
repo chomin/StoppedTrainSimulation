@@ -39,14 +39,14 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
             // (goal), 道2つ, 駅, 線路, 駅, 道2つ, startの順で調べる.
             for (place in places.reversed()){
 
-                if(place is Roadway) continue
+//                if(place is Roadway) continue
 
                 place.checkAllAgents()
                 if (time%10 == 0 && place is Node){
                     val node = place as Node
                     when(node.name){
                         "六甲道駅" -> {
-                            node.generateCars  (3)
+                            node.generateCars  (5)
                             node.generateTrains(0)
                         }
                         "塚口（JR）" -> {
@@ -54,7 +54,7 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
                             node.generateTrains(1)
                         }
                         "塚口（阪急）" -> {
-                            node.generateCars  (3)
+                            node.generateCars  (5)
                         }
                     }
                 }
@@ -63,7 +63,7 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
             view.repaint()
 
             try {
-                Thread.sleep(1000L)
+                Thread.sleep(500L)
 
             } catch (_ex: Exception) {
             }

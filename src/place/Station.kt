@@ -82,10 +82,10 @@ class Station(override var name: String, override var point: Point): Node {
     }
 
     override fun checkAllAgents() {
-        if(name == "塚口（JR）"){
-            println("駅の人工増減")
-            println(people.size)
-        }
+//        if(name == "塚口（JR）"){
+//            println("駅の人口増減")
+//            println(people.size)
+//        }
 
 
 
@@ -99,7 +99,7 @@ class Station(override var name: String, override var point: Point): Node {
         }
         for (vehiclePair in removingVP){ waitingVehicles.remove(vehiclePair) }
 
-        val sidewalks = ways.filter { it is Sidewalk }.map { it as Sidewalk }
+        val sidewalks = nexts.filter { it is Sidewalk }.map { it as Sidewalk }
         val removingPeople = ArrayList<Person>()
         for (sidewalk in sidewalks) {   // どの道を選ぶか？は以後実装予定
             for (person in people){
@@ -120,6 +120,8 @@ class Station(override var name: String, override var point: Point): Node {
                 removingTP.add(trainPair)
 
             } else if (trainPair.second.state == TrainState.Running) { // 人を下ろし、電車は消滅 TODO: 次の行き先があるなら人を乗せる(なければ消滅)
+
+
                 trainPair.second.state = TrainState.GotOff
                 val removingPeople = ArrayList<Person>()
                 for (person in trainPair.second.people){
@@ -133,9 +135,9 @@ class Station(override var name: String, override var point: Point): Node {
         }
         for (trainPair in removingTP){ waitingTrains.remove(trainPair) }
 
-        if(name == "塚口（JR）"){
-            println(people.size)
-        }
+//        if(name == "塚口（JR）"){
+//            println(people.size)
+//        }
     }
 
     override fun drawSelf(g: Graphics2D) {

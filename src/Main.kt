@@ -16,7 +16,7 @@ object Main{
         val rand = Random()
 
         val people = ArrayList<Person>()   // 250*8が止まった駅からスタート
-        for (i in 0 until 250*8){
+        for (i in 0 until 5000){
             people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.Normal))
         }
         // まずノードを生成し、道を生成した後ノードに道情報をセット(道のイニシャライザでセット)。

@@ -8,7 +8,7 @@ import kotlin.math.sqrt
 
 class Sidewalk(override val previous: Node, override val next: Node, override val length: Int) : Way {
 
-    override val cellMaxAgents = 100
+    override val cellMaxAgents = 10
     var people: Array<ArrayList<Person>>
     val cellNum = length/100
 
