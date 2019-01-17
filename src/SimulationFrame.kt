@@ -1,16 +1,22 @@
 import place.*
 import java.awt.BorderLayout
+import java.awt.event.ActionEvent
+import java.awt.event.ActionListener
 import javax.swing.JButton
 import javax.swing.JFrame
 import javax.swing.JPanel
 import javax.swing.border.EmptyBorder
 
-class SimulationFrame internal constructor(private val places: ArrayList<Place>): JFrame(), Runnable{
+class SimulationFrame internal constructor(private val places: ArrayList<Place>): JFrame(), ActionListener, Runnable{
 
     private val contentPane: JPanel
     private var kissOfDeath = false
+    private var time = 0
+
+    private var t: Thread? = null
 
     val view = SimulationView(places)
+    val button = JButton("start")
 
     init {
         defaultCloseOperation = JFrame.EXIT_ON_CLOSE
@@ -20,21 +26,39 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
         setContentPane(contentPane)
         contentPane.layout = BorderLayout(0, 0)
 
-
-
         contentPane.add(view, BorderLayout.CENTER)
 
+
         val panel = JPanel()
+        panel.add(button)
+
         contentPane.add(panel, BorderLayout.SOUTH)
+
+        button.addActionListener(this)
 
     }
 
+    override fun actionPerformed(e: ActionEvent?) {
+        if (e?.source == button) {
+            when(kissOfDeath){
+                true -> {
+                    kissOfDeath = false
+                    button.text = "start"
+                }
+                false -> {
+                    kissOfDeath = true
+                    button.text = "stop"
+                    t = Thread(this)
+                    t!!.start()
+                }
+            }
+        }
+    }
+
     override fun run() {
-//        var time = 0
-//        while (kissOfDeath){
-//
-//        }
-        for (time in 0 until Main.maxTime){  // 分単位
+
+        while (kissOfDeath && time < Main.maxTime){ // 分単位
+
             // Placeが持つ全エージェントを調べる
             // (goal), 道2つ, 駅, 線路, 駅, 道2つ, startの順で調べる.
             for (place in places.reversed()){
@@ -67,26 +91,12 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
 
             } catch (_ex: Exception) {
             }
-//            roadway2.checkAllAgents()
-//            sidewalk2.checkAllAgents()
-//            if (time%10 == 0){
-//                goalNearestStation.generateCars(3)
-//                goalNearestStation.generateTrains(0)
-//            }
-//            goalNearestStation.checkAllAgents()
-//            railWay1.checkAllAgents()
-//            if (time%10 == 0){
-//                startNearestStation.generateCars(0)
-//                startNearestStation.generateTrains(1)
-//            }
-//            startNearestStation.checkAllAgents()
-//            roadway1.checkAllAgents()
-//            sidewalk1.checkAllAgents()
-//            if (time%10 == 0){
-//                start.generateCars(3)
-//            }
-//            start.checkAllAgents()
 
+            time++
         }
+//        for (time in 0 until Main.maxTime){
+//
+//
+//        }
     }
 }
