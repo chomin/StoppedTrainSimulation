@@ -57,6 +57,7 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
 
     override fun run() {
 
+
         while (kissOfDeath && time < Main.maxTime){ // 分単位
 
             // Placeが持つ全エージェントを調べる
@@ -65,29 +66,39 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
 
 //                if(place is Roadway) continue
 
+                // 徒歩は分速80m 5回に１回休む　車は分速500m(空いているとき) 鉄道は1000m
+                if(time%5 == 0 && place is Sidewalk){ continue }
+                else if (place is Roadway) {
+                    for (i in 0 until 4){
+                        place.checkAllAgents()
+                    }
+                }
                 place.checkAllAgents()
+
+
+                // TODO: 道のfreqに応じて電車やバスを生成
                 if (time%10 == 0 && place is Node){
-                    val node = place as Node
-                    when(node.name){
+                    when(place.name){
                         "六甲道駅" -> {
-                            node.generateCars  (5)
-                            node.generateTrains(0)
+                            place.generateCars  (5)
+                            place.generateTrains(0)
                         }
                         "塚口（JR）" -> {
-                            node.generateCars  (0)
-                            node.generateTrains(1)
+                            place.generateCars  (0)
+                            place.generateTrains(1)
                         }
                         "塚口（阪急）" -> {
-                            node.generateCars  (5)
+                            place.generateCars  (5)
                         }
                     }
                 }
             }
 
+            view.time = time
             view.repaint()
 
             try {
-                Thread.sleep(500L)
+                Thread.sleep(100L)
 
             } catch (_ex: Exception) {
             }

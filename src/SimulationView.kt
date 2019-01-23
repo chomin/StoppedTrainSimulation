@@ -11,10 +11,14 @@ import kotlin.collections.ArrayList
 
 class SimulationView internal constructor(private val places: ArrayList<Place>) : JPanel(){
 
+    var time = 0
+
     public override fun paintComponent(g0: Graphics) {
         val g = g0 as Graphics2D
         g.background = Color.LIGHT_GRAY
         g.clearRect(0, 0, width, height)
+
+        g.drawString("開始からの時間：$time", width/2, font.size)
 
         for (place in places){
             place.drawSelf(g)

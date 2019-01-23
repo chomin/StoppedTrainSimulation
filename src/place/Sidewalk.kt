@@ -23,10 +23,10 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
             if(index == cellNum-1) { // 最後のマス
                 val removingPeople = ArrayList<Person>()
 
-                if (next is Station) {
-                    println("SidewalkからStationへ")
-                    println(next.people.size)
-                }
+//                if (next is Station) {
+//                    println("SidewalkからStationへ")
+//                    println(next.people.size)
+//                }
                 for(person in people[index]){
                     if (next is Goal){ // 人がnextに移動
                         next.people.add(person)
@@ -41,11 +41,9 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
                     val t = next.people.size
                 }
                 for(person in removingPeople){ people[index].remove(person) } // 移動したものを消去
-                if (next is Station) {
-                    println(next.people.size)
-                }
-
-
+//                if (next is Station) {
+//                    println(next.people.size)
+//                }
 
             } else {
                 val removingPeople = ArrayList<Person>()
