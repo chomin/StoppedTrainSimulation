@@ -9,6 +9,8 @@ import java.awt.Graphics2D
 import java.awt.Point
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.floor
+import kotlin.math.pow
 
 class Start(override var point: Point, override val people: ArrayList<Person>) : Node {// 最初はみんなpeopleに入るが、バスに乗ると取り除かれる。
 
@@ -18,9 +20,21 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
 
     override val waitingVehicles = ArrayList<Pair<Roadway, Vehicle>>()
 
-    override fun generateCars(num: Int) {
+    fun generateACar(){
+        // TODO
+    }
+
+    override fun generateCars(num: Int, time: Int) {
+
         val roads = ways.filter { it is Roadway }.map { it as Roadway }
         for (road in roads) {   // すべての道に対しnumずつ生成
+
+            val afterDecimalPoint = road.busFreq - floor(road.busFreq)
+            val intPart = (road.busFreq - afterDecimalPoint).toInt()
+            val smallNum = 10.0.pow(-5)
+
+            for (i in 0 until intPart){  } // TODO
+
             for (temp in 0 until num){
                 // 乗る人を決め、バスを出発or待機させる
                 val ridingPeople = ArrayList<Person>()
@@ -49,7 +63,7 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
         }
     }
 
-    override fun generateTrains(num: Int) { // 運行再開用
+    override fun generateTrains(num: Int, time: Int) { // 運行再開用
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

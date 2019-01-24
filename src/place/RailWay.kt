@@ -7,7 +7,7 @@ import java.awt.Graphics2D
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class RailWay(override val previous: Node, override val next: Node, override val length: Int, val trainFreq: Int) :
+class RailWay(override val previous: Node, override val next: Node, override val length: Int, val trainFreq: Double) :
     Way {
 
     override val cellMaxAgents = 1

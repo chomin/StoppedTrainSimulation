@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44058e08-0963-4584-85cb-e08762632695" name="Default Changelist" comment="バグ探し中&#10;塚口（JR）駅のcheckAll（）で何故か人が減っている">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="44058e08-0963-4584-85cb-e08762632695" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SimulationFrame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationFrame.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulationView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Sidewalk.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Sidewalk.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/place/Goal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Goal.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/place/Node.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Node.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/place/RailWay.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/RailWay.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/place/Roadway.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Roadway.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/place/Start.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Start.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/place/Station.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Station.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,13 +18,30 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="StoppingTrainSimulation" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
+            <state relative-caret-position="123">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
               <folding>
                 <element signature="e#0#160#0" expanded="true" />
               </folding>
@@ -32,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/place/Station.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+            <state relative-caret-position="142">
+              <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
               <folding>
                 <element signature="e#1073#2106#1" />
               </folding>
@@ -44,17 +64,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/place/Node.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+            <state relative-caret-position="209">
+              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/place/Goal.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/place/Start.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+              <folding>
+                <element signature="e#15#268#0" expanded="true" />
+                <element signature="n#!!block;n#checkAllAgents#0;n#!!block;n#Start#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SimulationFrame.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+            <state relative-caret-position="234">
+              <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
               <folding>
                 <element signature="e#567#1036#0" />
                 <element signature="n#!!block;n#actionPerformed#0;n#!!block;n#SimulationFrame#0" />
@@ -76,12 +118,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/place/Sidewalk.kt">
+        <entry file="file://$PROJECT_DIR$/src/place/Roadway.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+            <state relative-caret-position="52">
+              <caret line="9" column="113" selection-start-line="9" selection-start-column="113" selection-end-line="9" selection-end-column="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/place/RailWay.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="9" column="115" selection-start-line="9" selection-start-column="115" selection-end-line="9" selection-end-column="115" />
               <folding>
-                <element signature="n#!!block;n#drawSelf#0;n#!!block;n#Sidewalk#0" />
+                <element signature="n#!!block;n#checkAllAgents#0;n#!!block;n#RailWay#0" />
+                <element signature="n#!!block;n#drawSelf#0;n#!!block;n#RailWay#0" />
               </folding>
             </state>
           </provider>
@@ -150,16 +202,16 @@
         <option value="$PROJECT_DIR$/src/agent/Bus.kt" />
         <option value="$PROJECT_DIR$/src/agent/Train.kt" />
         <option value="$PROJECT_DIR$/src/place/Way.kt" />
-        <option value="$PROJECT_DIR$/src/place/Node.kt" />
-        <option value="$PROJECT_DIR$/src/place/Goal.kt" />
-        <option value="$PROJECT_DIR$/src/place/Start.kt" />
-        <option value="$PROJECT_DIR$/src/place/RailWay.kt" />
-        <option value="$PROJECT_DIR$/src/place/Roadway.kt" />
         <option value="$PROJECT_DIR$/src/Main.kt" />
-        <option value="$PROJECT_DIR$/src/place/Station.kt" />
         <option value="$PROJECT_DIR$/src/place/Sidewalk.kt" />
         <option value="$PROJECT_DIR$/src/SimulationView.kt" />
+        <option value="$PROJECT_DIR$/src/place/Node.kt" />
+        <option value="$PROJECT_DIR$/src/place/Goal.kt" />
+        <option value="$PROJECT_DIR$/src/place/Roadway.kt" />
+        <option value="$PROJECT_DIR$/src/place/RailWay.kt" />
+        <option value="$PROJECT_DIR$/src/place/Station.kt" />
         <option value="$PROJECT_DIR$/src/SimulationFrame.kt" />
+        <option value="$PROJECT_DIR$/src/place/Start.kt" />
       </list>
     </option>
   </component>
@@ -286,7 +338,7 @@
       <workItem from="1547609633563" duration="1231000" />
       <workItem from="1547685880190" duration="1735000" />
       <workItem from="1548028943470" duration="102000" />
-      <workItem from="1548226491294" duration="3469000" />
+      <workItem from="1548226491294" duration="5438000" />
     </task>
     <task id="LOCAL-00001" summary="初コミット">
       <created>1544576202489</created>
@@ -365,44 +417,60 @@
       <option name="project" value="LOCAL" />
       <updated>1547690266388</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="freqの考慮開始">
+      <created>1548287159194</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1548287159195</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56236000" />
+    <option name="totallyTimeSpent" value="58205000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="743" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2625202" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4977169" visible="true" weight="0.2625202" />
+      <window_info id="Structure" order="1" sideWeight="0.5022831" side_tool="true" weight="0.2625202" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="6" sideWeight="0.5022831" side_tool="true" weight="0.2625202" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923076" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49469623" visible="true" weight="0.32718894" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49469623" weight="0.32718894" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4985451" weight="0.39692307" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32872504" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32872504" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50530374" side_tool="true" weight="0.3277405" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32872504" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49469623" weight="0.23809524" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49469623" visible="true" weight="0.23809524" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24959612" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32956383" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
@@ -504,7 +572,12 @@
     <MESSAGE value="セルオートマトンの描写開始（線路から）" />
     <MESSAGE value="可視化完了&#10;スレッド処理作成開始" />
     <MESSAGE value="バグ探し中&#10;塚口（JR）駅のcheckAll（）で何故か人が減っている" />
-    <option name="LAST_COMMIT_MESSAGE" value="バグ探し中&#10;塚口（JR）駅のcheckAll（）で何故か人が減っている" />
+    <MESSAGE value="freqの考慮開始" />
+    <option name="LAST_COMMIT_MESSAGE" value="freqの考慮開始" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/agent/Agent.kt">
@@ -572,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/place/Roadway.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/place/Way.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -593,45 +659,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/place/Goal.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/place/RailWay.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="110" column="72" selection-start-line="110" selection-start-column="72" selection-end-line="110" selection-end-column="72" />
-          <folding>
-            <element signature="n#!!block;n#checkAllAgents#0;n#!!block;n#RailWay#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/place/Start.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!block;n#generateCars#0;n#!!block;n#Start#0" />
-            <element signature="n#!!block;n#checkAllAgents#0;n#!!block;n#Start#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/misc/Unsafe.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="2293" column="23" selection-start-line="2293" selection-start-column="23" selection-end-line="2293" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/place/Node.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -641,6 +672,47 @@
           <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
           <folding>
             <element signature="n#!!block;n#drawSelf#0;n#!!block;n#Sidewalk#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/place/Roadway.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="9" column="113" selection-start-line="9" selection-start-column="113" selection-end-line="9" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/place/Node.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/place/Goal.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/place/Station.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+          <folding>
+            <element signature="e#1073#2106#1" />
           </folding>
         </state>
       </provider>
@@ -655,33 +727,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#160#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/place/Station.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
-          <folding>
-            <element signature="e#1073#2106#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SimulationFrame.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+        <state relative-caret-position="234">
+          <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
           <folding>
             <element signature="e#567#1036#0" />
             <element signature="n#!!block;n#actionPerformed#0;n#!!block;n#SimulationFrame#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/place/RailWay.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="9" column="115" selection-start-line="9" selection-start-column="115" selection-end-line="9" selection-end-column="115" />
+          <folding>
+            <element signature="n#!!block;n#checkAllAgents#0;n#!!block;n#RailWay#0" />
+            <element signature="n#!!block;n#drawSelf#0;n#!!block;n#RailWay#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/place/Start.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <folding>
+            <element signature="e#15#268#0" expanded="true" />
+            <element signature="n#!!block;n#checkAllAgents#0;n#!!block;n#Start#0" />
           </folding>
         </state>
       </provider>

@@ -15,8 +15,8 @@ class Goal(override var point: Point): Node {
 
 
     override fun checkAllAgents() {}
-    override fun generateCars(num: Int) {}
-    override fun generateTrains(num: Int) {}
+    override fun generateCars(num: Int, time: Int) {}
+    override fun generateTrains(num: Int, time: Int) {}
 
     override fun drawSelf(g: Graphics2D) {
         super.drawSelf(g)

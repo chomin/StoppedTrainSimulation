@@ -29,7 +29,8 @@ class Station(override var name: String, override var point: Point): Node {
 //        }
 //    }
 
-    override fun generateCars(num: Int) {   // TODO: 将来的には人の行先によって電車に乗るか車に乗るかを歩くかを決める.
+    // TODO: time
+    override fun generateCars(num: Int, time: Int) {   // TODO: 将来的には人の行先によって電車に乗るか車に乗るかを歩くかを決める.
         val nextRoads = nexts.filter { it is Roadway }.map { it as Roadway }
         for (road in nextRoads) {   // すべての道に対しnumずつ生成
             for (temp in 0 until num){
@@ -60,7 +61,7 @@ class Station(override var name: String, override var point: Point): Node {
         }
     }
 
-    override fun generateTrains(num: Int) {
+    override fun generateTrains(num: Int, time: Int) {
         val nextRails = nexts.filter { it is RailWay }.map { it as RailWay }
 
         loop@ for (railWay in nextRails) {   // すべての道に対しnumずつ生成

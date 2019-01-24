@@ -77,18 +77,21 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
 
 
                 // TODO: 道のfreqに応じて電車やバスを生成
+
+
+
                 if (time%10 == 0 && place is Node){
                     when(place.name){
-                        "六甲道駅" -> {
-                            place.generateCars  (5)
-                            place.generateTrains(0)
-                        }
-                        "塚口（JR）" -> {
-                            place.generateCars  (0)
-                            place.generateTrains(1)
-                        }
-                        "塚口（阪急）" -> {
-                            place.generateCars  (5)
+//                        "六甲道駅" -> {
+//                            place.generateCars  (5, time)
+//                            place.generateTrains(0, time)
+//                        }
+//                        "塚口（JR）" -> {
+//                            place.generateCars  (0)
+//                            place.generateTrains(1)
+//                        }
+//                        "塚口（阪急）" -> {
+//                            place.generateCars  (5)
                         }
                     }
                 }

@@ -7,7 +7,7 @@ import java.awt.Graphics2D
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class Roadway(override val previous: Node, override val next: Node, override val length: Int, val busFreq: Int) :
+class Roadway(override val previous: Node, override val next: Node, override val length: Int, val busFreq: Double) :
     Way {
 
 
