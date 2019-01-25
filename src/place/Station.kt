@@ -18,67 +18,59 @@ class Station(override var name: String, override var point: Point): Node {
     val waitingTrains   = ArrayList<Pair<RailWay, Train   >>()
     override val waitingVehicles = ArrayList<Pair<Roadway, Vehicle >>()
 
-
-//    init {
-//        for (way in ways){
-//            if (way.previous == this){
-//                nexts.add(way)
-//            }else{
-//                prevs.add(way)
-//            }
-//        }
-//    }
-
-    // TODO: time
-    override fun generateCars(num: Int, time: Int) {   // TODO: 将来的には人の行先によって電車に乗るか車に乗るかを歩くかを決める.
-        val nextRoads = nexts.filter { it is Roadway }.map { it as Roadway }
-        for (road in nextRoads) {   // すべての道に対しnumずつ生成
-            for (temp in 0 until num){
-                // 乗る人を決め、バスを出発or待機させる
-                val ridingPeople = ArrayList<Person>()
-                val ran = Random()
-                for (person in people){
-                    if (ridingPeople.size > Bus.maxPeople) break
-                    when{
-                        person.strategy == Strategy.Normal -> {
-                            val tmp = ran.nextInt(2)
-                            when (tmp) {
-                                0 -> {
-                                    ridingPeople.add(person)
-                                }
-                            }
+    private fun generateACar(road: Roadway) {
+        // 乗る人を決め、バスを出発or待機させる
+        val ridingPeople = ArrayList<Person>()
+        val ran = Random()
+        for (person in people) {
+            if (ridingPeople.size > Bus.maxPeople) break
+            when {
+                person.strategy == Strategy.Normal -> {
+                    val tmp = ran.nextInt(2)
+                    when (tmp) {
+                        0 -> {
+                            ridingPeople.add(person)
                         }
                     }
                 }
-                for (person in ridingPeople){ people.remove(person) }
-                val bus = Bus(ridingPeople)
-                if (road.vehicles[0].size < road.cellMaxAgents && waitingVehicles.none { it.first == road }){
-                    road.vehicles[0].add(bus)
-                } else {
-                    waitingVehicles.add(Pair(road, bus))
-                }
             }
+        }
+        for (person in ridingPeople) { people.remove(person) }
+
+        val bus = Bus(ridingPeople)
+        if (road.vehicles[0].size < road.cellMaxAgents && waitingVehicles.none { it.first == road }) {
+            road.vehicles[0].add(bus)
+        } else {
+            waitingVehicles.add(Pair(road, bus))
         }
     }
 
-    override fun generateTrains(num: Int, time: Int) {
+    override fun generateCars(time: Int) {   // TODO: 将来的には人の行先によって電車に乗るか車に乗るかを歩くかを決める.
+        val nextRoads = nexts.filter { it is Roadway }.map { it as Roadway }
+        for (road in nextRoads) {   // すべての道に対しnumずつ生成
+            if (time%road.busFreq == 0) { generateACar(road) }
+        }
+    }
+
+    override fun generateTrains(time: Int) {
         val nextRails = nexts.filter { it is RailWay }.map { it as RailWay }
 
         loop@ for (railWay in nextRails) {   // すべての道に対しnumずつ生成
-            for (temp in 0 until num){
-                if (waitingTrains.size >= maxTrainNum) {
-                    println("駅のホームが足りません。@" + this.name)
-                    break@loop
-                }
-                val ridingPeople = ArrayList<Person>()
-                val ran = Random()
-                for (person in people){
-                    if (ridingPeople.size > Train.maxPeople) break
-                    ridingPeople.add(person)
-                }
-                for (person in ridingPeople){ people.remove(person) }
-                waitingTrains.add(Pair(railWay, Train(ridingPeople)))
+            if (waitingTrains.size >= maxTrainNum) {
+                println("駅のホームが足りません。@" + this.name)
+                break@loop
             }
+
+            if (time%railWay.trainFreq != 0) { continue }
+
+            val ridingPeople = ArrayList<Person>()
+            for (person in people){
+                if (ridingPeople.size > Train.maxPeople) break
+                ridingPeople.add(person)
+            }
+            for (person in ridingPeople){ people.remove(person) }
+            waitingTrains.add(Pair(railWay, Train(ridingPeople)))
+
         }
     }
 

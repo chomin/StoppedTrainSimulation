@@ -18,8 +18,8 @@ interface Node: Place{
     val people: ArrayList<Person>
     val waitingVehicles: ArrayList<Pair<Roadway, Vehicle>>
 
-    fun generateCars(num: Int, time: Int)
-    fun generateTrains(num: Int, time: Int)
+    fun generateCars(time: Int)
+    fun generateTrains(time: Int)
 
     override fun drawSelf(g: Graphics2D) {
         g.color = Color.BLACK

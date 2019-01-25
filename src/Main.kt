@@ -8,7 +8,7 @@ import kotlin.collections.ArrayList
 
 object Main{
 
-    val maxTime = 180   // とりあえず3時間
+    val maxTime = 240   // とりあえず3時間
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -16,7 +16,7 @@ object Main{
         val rand = Random()
 
         val people = ArrayList<Person>()   // 250*8が止まった駅からスタート
-        for (i in 0 until 5000){
+        for (i in 0 until 250*8){
             people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.Normal))
         }
         // まずノードを生成し、道を生成した後ノードに道情報をセット(道のイニシャライザでセット)。
@@ -31,7 +31,7 @@ object Main{
 
 
 
-        val taxiFreq  = 0.2  // １台あたりの時間(分)
+//        val taxiFreq  = 0.2  // １台あたりの時間(分)
         val trainFreq = 7
         val railWay1  = RailWay(startNearestStation, goalNearestStation, 20700, trainFreq)
         val sidewalk1 = Sidewalk(start, startNearestStation, 1000)
