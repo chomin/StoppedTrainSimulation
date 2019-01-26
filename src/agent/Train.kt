@@ -7,7 +7,7 @@ enum class TrainState {
 class Train(override var people: ArrayList<Person>) : Vehicle { // 8両編成とする
 
     companion object {
-        val maxPeople = 250*8 // 競合路線から乗れるのは1駅あたり250人とする
+        val maxPeople = 250 // 競合路線から乗れるのは1駅あたり250人とする
         val speed = 30
     }
 

@@ -1,3 +1,4 @@
+import place.Goal
 import place.Place
 import java.awt.Color
 import java.awt.Graphics
@@ -12,6 +13,10 @@ import kotlin.collections.ArrayList
 class SimulationView internal constructor(private val places: ArrayList<Place>) : JPanel(){
 
     var time = 0
+
+    init {
+        (places.first { it is Goal } as Goal).view = this
+    }
 
     public override fun paintComponent(g0: Graphics) {
         val g = g0 as Graphics2D

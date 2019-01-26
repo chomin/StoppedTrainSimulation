@@ -7,11 +7,11 @@ import java.awt.Graphics2D
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class RailWay(override val previous: Node, override val next: Node, override val length: Int, val trainFreq: Int) :
+class RailWay(override val previous: Node, override val next: Node, override val meters: Int, val trainFreq: Int) :
     Way {
 
     override val cellMaxAgents = 1
-    val cellNum: Int = length/1000
+    val cellNum: Int = meters/1000
     var trains: Array<ArrayList<Train>>
     val prevStation = previous as Station
     val nextStation = next as Station
@@ -26,7 +26,7 @@ class RailWay(override val previous: Node, override val next: Node, override val
         trains = Array(cellNum) { ArrayList<Train>() }
     }
 
-    override fun checkAllAgents() {
+    override fun checkAllAgents(time: Int) {
         for (i in 0 until cellNum){
             val index = cellNum-i-1 // cellのindex.後ろから探索.
             if(index == cellNum-1) { // 最後のマス

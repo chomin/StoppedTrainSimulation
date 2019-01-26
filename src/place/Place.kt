@@ -4,6 +4,6 @@ import java.awt.Graphics2D
 
 interface Place{    // NodeとWay
 
-    fun checkAllAgents()
+    fun checkAllAgents(time: Int)
     fun drawSelf(g: Graphics2D)
 }

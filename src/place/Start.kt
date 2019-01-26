@@ -27,15 +27,21 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
         val ran = Random()
         for (person in people) {
             if (ridingPeople.size > Bus.maxPeople) break
-            when {
-                person.strategy == Strategy.Normal -> {
+            when (person.strategy){
+                Strategy.Normal -> {
                     val tmp = ran.nextInt(2)
                     when (tmp) {
                         0 -> {
                             ridingPeople.add(person)
+                            person.totalCost += road.busCost
                         }
                     }
                 }
+                Strategy.BusOnly -> {
+                    ridingPeople.add(person)
+                    person.totalCost += road.busCost
+                }
+                Strategy.NoCash  -> {}   // 乗らない
             }
         }
         for (person in ridingPeople) { people.remove(person) }
@@ -48,43 +54,11 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
         }
     }
 
-     override fun generateCars(time: Int) {
+    override fun generateCars(time: Int) {
 
         val roads = ways.filter { it is Roadway }.map { it as Roadway }
-        for (road in roads) {   // すべての道に対しnumずつ生成
-            if (time%road.busFreq == 0) { generateACar(road) }
 
-//            val afterDecimalPoint = road.busFreq - floor(road.busFreq)
-//            val intPart = (road.busFreq - afterDecimalPoint).toInt()
-//            val smallNum = 10.0.pow(-5)
-//            var generateNum = intPart
-//
-//            val twice = afterDecimalPoint*2
-//            val thTimes = afterDecimalPoint*3
-//            val foTimes = afterDecimalPoint*4
-//            val fiTimes = afterDecimalPoint*5
-//            val teTimes = afterDecimalPoint*10
-//            when {
-//                time%10 == 0 -> {
-//                    when {
-//                        teTimes-floor(teTimes) < smallNum -> generateNum += floor(teTimes).toInt()
-//                        ceil(teTimes)-teTimes  < smallNum -> generateNum += ceil(teTimes) .toInt()
-//                    }
-//                }
-//                time%2 == 0 -> {
-//                    when {
-//                        twice-floor(twice) < smallNum -> generateNum += floor(twice).toInt()
-//                        ceil(twice)-twice  < smallNum -> generateNum += ceil(twice) .toInt()
-//                    }
-//                }
-//            }
-
-//            for (i in 0 until generateNum){ generateACar(road) }
-
-//            for (temp in 0 until num){
-
-//            }
-        }
+        roads.forEach { if( time%it.busFreq==0 ){ generateACar(it) }}
     }
 
     override fun generateTrains(time: Int) { // 運行再開用
@@ -95,7 +69,7 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
     /**
      * 車に乗る人が決まったことを前提とするため、generateCars()後に呼び出すこと。
      */
-    override fun checkAllAgents() {
+    override fun checkAllAgents(time: Int) {
         val removingVP = ArrayList<Pair<Roadway, Vehicle>>()
         for (vehiclePair in waitingVehicles){
             if (vehiclePair.first.vehicles[0].size < vehiclePair.first.cellMaxAgents) {
@@ -109,6 +83,7 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
         val removingPeople = ArrayList<Person>()
         for (sidewalk in sidewalks) {   // どの道を選ぶか？は以後実装予定
             for (person in people){
+                if (person.strategy == Strategy.BusOnly) continue
                 if(sidewalk.people[0].size < sidewalk.cellMaxAgents){
                     sidewalk.people[0].add(person)
                     removingPeople.add(person)

@@ -6,18 +6,18 @@ import java.awt.Graphics2D
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class Sidewalk(override val previous: Node, override val next: Node, override val length: Int) : Way {
+class Sidewalk(override val previous: Node, override val next: Node, override val meters: Int) : Way {
 
     override val cellMaxAgents = 10
     var people: Array<ArrayList<Person>>
-    val cellNum = length/100
+    val cellNum = meters/100
 
     init {
         addSelfToNodes()
         people = Array(cellNum) { ArrayList<Person>() }
     }
 
-    override fun checkAllAgents() {
+    override fun checkAllAgents(time: Int) {
         for (i in 0 until cellNum){
             val index = cellNum-i-1 // cellのindex.後ろから探索.
             if(index == cellNum-1) { // 最後のマス
@@ -31,6 +31,7 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
                     if (next is Goal){ // 人がnextに移動
                         next.people.add(person)
                         removingPeople.add(person)
+                        person.arrivedTime = time
                     } else { // nextはStation
                         val nextSta = next as Station
                         if (nextSta.people.size < nextSta.maxPeopleNum){

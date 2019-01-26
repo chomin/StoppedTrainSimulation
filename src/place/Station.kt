@@ -13,7 +13,7 @@ class Station(override var name: String, override var point: Point): Node {
     override val people = ArrayList<Person>()
     val prevs = ArrayList<Way>()    // waysのノードの代入の都合上, 後でway側から初期化
     val nexts = ArrayList<Way>()
-    val maxPeopleNum = 300
+    val maxPeopleNum = 100
     val maxTrainNum = 1
     val waitingTrains   = ArrayList<Pair<RailWay, Train   >>()
     override val waitingVehicles = ArrayList<Pair<Roadway, Vehicle >>()
@@ -24,15 +24,21 @@ class Station(override var name: String, override var point: Point): Node {
         val ran = Random()
         for (person in people) {
             if (ridingPeople.size > Bus.maxPeople) break
-            when {
-                person.strategy == Strategy.Normal -> {
+            when(person.strategy) {
+                 Strategy.Normal -> {
                     val tmp = ran.nextInt(2)
                     when (tmp) {
                         0 -> {
                             ridingPeople.add(person)
+                            person.totalCost += road.busCost
                         }
                     }
                 }
+                Strategy.BusOnly -> {
+                    ridingPeople.add(person)
+                    person.totalCost += road.busCost
+                }
+                Strategy.NoCash  -> {}   // 乗らない
             }
         }
         for (person in ridingPeople) { people.remove(person) }
@@ -74,13 +80,7 @@ class Station(override var name: String, override var point: Point): Node {
         }
     }
 
-    override fun checkAllAgents() {
-//        if(name == "塚口（JR）"){
-//            println("駅の人口増減")
-//            println(people.size)
-//        }
-
-
+    override fun checkAllAgents(time: Int) {
 
         // 車と歩行者出発→電車出発→電車から人を(無理やり)下ろす
         val removingVP = ArrayList<Pair<Roadway, Vehicle>>()
@@ -96,6 +96,7 @@ class Station(override var name: String, override var point: Point): Node {
         val removingPeople = ArrayList<Person>()
         for (sidewalk in sidewalks) {   // どの道を選ぶか？は以後実装予定
             for (person in people){
+                if (person.strategy == Strategy.BusOnly) continue
                 if(sidewalk.people[0].size < sidewalk.cellMaxAgents){
                     sidewalk.people[0].add(person)
                     removingPeople.add(person)

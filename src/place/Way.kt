@@ -3,7 +3,7 @@ package place
 interface Way: Place{   // place.RailWay, place.Roadway, place.Sidewalk
     val previous: Node
     val next: Node
-    val length: Int
+    val meters: Int
     val cellMaxAgents: Int
 
     fun addSelfToNodes(){

@@ -8,7 +8,7 @@ import kotlin.collections.ArrayList
 
 object Main{
 
-    val maxTime = 240   // とりあえず3時間
+    val maxTime = 1000
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -16,18 +16,24 @@ object Main{
         val rand = Random()
 
         val people = ArrayList<Person>()   // 250*8が止まった駅からスタート
-        for (i in 0 until 250*8){
-            people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.Normal))
+        val peopleNum = 250*8
+        for (i in 0 until peopleNum){
+            when(i%3){
+                0 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.Normal))
+                1 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.BusOnly))
+                2 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.NoCash))
+            }
+
         }
         // まずノードを生成し、道を生成した後ノードに道情報をセット(道のイニシャライザでセット)。
         val places = ArrayList<Place>()
         val start = Start(Point(200, 200), people)
 
-        val goal  = Goal(Point(1000, 200))
+        val goal  = Goal(Point(800, 200))
 
         val startNearestStation = Station("塚口（JR）", Point(200, 600))
 
-        val goalNearestStation  = Station("六甲道駅", Point(1000, 600))
+        val goalNearestStation  = Station("六甲道駅"  , Point(800, 600))
 
 
 
@@ -36,8 +42,8 @@ object Main{
         val railWay1  = RailWay(startNearestStation, goalNearestStation, 20700, trainFreq)
         val sidewalk1 = Sidewalk(start, startNearestStation, 1000)
         val sidewalk2 = Sidewalk(goalNearestStation, goal, 750)
-        val roadway1  = Roadway(start, startNearestStation, 1000, 12)
-        val roadway2  = Roadway(goalNearestStation, goal, 750, 3)
+        val roadway1  = Roadway(start, startNearestStation, 1000, 12, 210)
+        val roadway2  = Roadway(goalNearestStation, goal, 750, 3, 210)
 
         places.add(start)
         places.add(roadway1)
@@ -58,7 +64,7 @@ object Main{
         // 可視化
 //        EventQueue.invokeLater {
             try {
-                val frame = SimulationFrame(places)
+                val frame = SimulationFrame(places, peopleNum)
                 frame.isVisible = true
                 frame.run()
             } catch (e: Exception) {

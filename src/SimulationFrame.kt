@@ -7,7 +7,7 @@ import javax.swing.JFrame
 import javax.swing.JPanel
 import javax.swing.border.EmptyBorder
 
-class SimulationFrame internal constructor(private val places: ArrayList<Place>): JFrame(), ActionListener, Runnable{
+class SimulationFrame internal constructor(private val places: ArrayList<Place>, private val peopleNum: Int): JFrame(), ActionListener, Runnable{
 
     private val contentPane: JPanel
     private var kissOfDeath = false
@@ -18,7 +18,12 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
     val view = SimulationView(places)
     val button = JButton("start")
 
+
+
     init {
+
+
+
         defaultCloseOperation = JFrame.EXIT_ON_CLOSE
         setBounds(100, 100, 1200, 800)
         contentPane = JPanel()
@@ -58,7 +63,8 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
 
     override fun run() {
 
-        while (kissOfDeath && time < Main.maxTime) { // 分単位
+        var haveAllPeopleReached = (places.first { it is Goal } as Goal).people.size == peopleNum
+        while (kissOfDeath && time < Main.maxTime && !haveAllPeopleReached) { // 分単位
 
             // Placeが持つ全エージェントを調べる
             // (goal), 道2つ, 駅, 線路, 駅, 道2つ, startの順で調べる.
@@ -71,10 +77,10 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
                     continue
                 } else if (place is Roadway) {
                     for (i in 0 until 4) {
-                        place.checkAllAgents()
+                        place.checkAllAgents(time)
                     }
                 }
-                place.checkAllAgents()
+                place.checkAllAgents(time)
 
                 if (place is Node) {
                     place.generateCars(time)
@@ -91,6 +97,7 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>)
             }
 
             time++
+            haveAllPeopleReached = (places.first { it is Goal } as Goal).people.size == peopleNum
         }
     }
 

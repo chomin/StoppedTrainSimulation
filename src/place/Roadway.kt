@@ -1,18 +1,17 @@
 package place
 
-import agent.Train
 import agent.Vehicle
 import java.awt.Color
 import java.awt.Graphics2D
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class Roadway(override val previous: Node, override val next: Node, override val length: Int, val busFreq: Int) :
+class Roadway(override val previous: Node, override val next: Node, override val meters: Int, val busFreq: Int, val busCost: Int) :
     Way {
 
 
     override val cellMaxAgents = 1
-    val cellNum = length/100
+    val cellNum = meters/100
     var vehicles: Array<ArrayList<Vehicle>>
 
     init {
@@ -20,14 +19,17 @@ class Roadway(override val previous: Node, override val next: Node, override val
         vehicles = Array(cellNum) { ArrayList<Vehicle>() }
     }
 
-    override fun checkAllAgents() {
+    override fun checkAllAgents(time: Int) {
         for (i in 0 until cellNum){
             val index = cellNum-i-1 // cellのindex.後ろから探索.
             if(index == cellNum-1) { // 最後のマス
                 val removingVehicles = ArrayList<Vehicle>()
                 for(vehicle in vehicles[index]){
                     if (next is Goal){ // 人がnextに移動し、車は消滅
-                        vehicle.people.forEach { next.people.add(it) }
+                        vehicle.people.forEach {
+                            next.people.add(it)
+                            it.arrivedTime = time
+                        }
                         removingVehicles.add(vehicle)
                     } else { // nextはStation
                         val nextSta = next as Station
