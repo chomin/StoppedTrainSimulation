@@ -1,5 +1,6 @@
 package place
 
+import agent.Bus
 import agent.Vehicle
 import java.awt.Color
 import java.awt.Graphics2D
@@ -83,7 +84,7 @@ class Roadway(override val previous: Node, override val next: Node, override val
         for (cell in vehicles){
             count += cell.size
         }
-        g.drawString("走行車の総数: " + count, ((x1+x2)/2 + 20).toInt(), ((y1+y2)/2).toInt())
+        g.drawString("走行車の総数: $count", ((x1+x2)/2 + 20).toInt(), ((y1+y2)/2).toInt())
 
         // cellの表示
         val cellDotSize = wayLength/vehicles.size
@@ -97,6 +98,7 @@ class Roadway(override val previous: Node, override val next: Node, override val
                 ratio > 0.7 -> g.color = Color.RED
                 else        -> g.color = Color.ORANGE
             }
+            if (cell.any { it is Bus }){ g.color = Color.PINK }
             g.fillRect(x1.toInt(), celly.toInt(), width.toInt(), cellDotSize)
             g.color = Color.YELLOW
             g.drawRect(x1.toInt(), celly.toInt(), width.toInt(), cellDotSize)

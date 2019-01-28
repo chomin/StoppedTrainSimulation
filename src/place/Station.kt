@@ -13,7 +13,7 @@ class Station(override var name: String, override var point: Point): Node {
     override val people = ArrayList<Person>()
     val prevs = ArrayList<Way>()    // waysのノードの代入の都合上, 後でway側から初期化
     val nexts = ArrayList<Way>()
-    val maxPeopleNum = 100
+    val maxPeopleNum = 150
     val maxTrainNum = 1
     val waitingTrains   = ArrayList<Pair<RailWay, Train   >>()
     override val waitingVehicles = ArrayList<Pair<Roadway, Vehicle >>()

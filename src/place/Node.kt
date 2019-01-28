@@ -3,6 +3,7 @@ package place
 import agent.Person
 import agent.Vehicle
 import java.awt.Color
+import java.awt.Font
 import java.awt.Graphics2D
 import java.awt.Point
 
@@ -23,7 +24,11 @@ interface Node: Place{
 
     override fun drawSelf(g: Graphics2D) {
         g.color = Color.BLACK
+        val font0 = g.font
+        val font = Font("DailogInput",Font.BOLD,16)
+        g.font = font
         g.drawString(name, point.x+10, point.y-60)
+        g.font = font0
         g.drawString("人数: " + people.size, point.x+10, point.y-30)
         g.drawString("車の数: " + waitingVehicles.size, point.x+10, point.y+30)
     }
