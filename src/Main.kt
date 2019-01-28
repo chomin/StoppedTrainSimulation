@@ -15,13 +15,14 @@ object Main{
         val rand = Random()
 
         val people = ArrayList<Person>()   // 250*8が止まった駅からスタート
-        val peopleNum = 250*8
+        val peopleNum = 250*10
         for (i in 0 until peopleNum){
             when(i%10){
 //                0 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.Normal))
                 0,1,2,3 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.BusOnly))
-                4,5,6,7,8 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.NoCash))
-                9 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.ViaNishikita))
+                4,5 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.NoCash))
+                6,7 ->people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.AmagasakiWalk))
+                8,9 -> people.add(Person(rand.nextInt(11), rand.nextInt(11), rand.nextInt(11), Strategy.ViaNishikita))
             }
 
         }
@@ -46,6 +47,7 @@ object Main{
         val sidewalk1 = Sidewalk(start, startNearestStation, 1000)
         val sidewalk2 = Sidewalk(goalNearestStation, goal, 750)
         val sidewalk3 = Sidewalk(start, amagasakiSta, 3600)
+        sidewalk3.isDownStr = true
         val roadway1  = Roadway(start, startNearestStation, 1000, 12, 210)
         val roadway2  = Roadway(goalNearestStation, goal, 750, 3, 210)
         val roadway3  = Roadway(start, amagasakiSta, 3600, 20, 210)

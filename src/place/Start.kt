@@ -38,11 +38,21 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
                     }
                 }
                 Strategy.BusOnly -> {
-                    ridingPeople.add(person)
-                    person.totalCost += road.busCost
+//                    if (road.next.name == "塚口（JR）") {
+                        ridingPeople.add(person)
+                        person.totalCost += road.busCost
+//                    }
                 }
                 Strategy.NoCash  -> {}   // 乗らない
                 Strategy.ViaNishikita -> {}
+
+//                Strategy.AmagasakiBus -> {
+//                    if (road.next.name == "尼崎") {
+//                        ridingPeople.add(person)
+//                        person.totalCost += road.busCost
+//                    }
+//                }
+                Strategy.AmagasakiWalk -> {}
             }
         }
         for (person in ridingPeople) { people.remove(person) }
@@ -84,13 +94,13 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
         val removingPeople = ArrayList<Person>()
         for (sidewalk in sidewalks) {   // どの道を選ぶか？は以後実装予定
             for (person in people){
+//                if (person.strategy == Strategy.BusOnly || person.strategy == Strategy.AmagasakiBus) continue
                 if (person.strategy == Strategy.BusOnly) continue
-                if (person.strategy == Strategy.ViaNishikita && sidewalk.next.name != "西宮北口") {
-                    continue
-                }
-                if (person.strategy == Strategy.NoCash && sidewalk.next.name != "塚口（JR）") {
-                    continue
-                }
+                if (person.strategy == Strategy.ViaNishikita && sidewalk.next.name != "西宮北口")     continue
+                if (person.strategy == Strategy.NoCash && sidewalk.next.name != "塚口（JR）")         continue
+                if (person.strategy == Strategy.AmagasakiWalk && sidewalk.next.name != "尼崎")       continue
+
+
 
                 if(sidewalk.people[0].size < sidewalk.cellMaxAgents){
                     sidewalk.people[0].add(person)

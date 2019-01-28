@@ -12,6 +12,7 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
     override var isHorizontal = false
     var people: Array<ArrayList<Person>>
     val cellNum = meters/100
+    var isDownStr = false // 文字被り対策
 
     init {
         addSelfToNodes()
@@ -114,7 +115,9 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
         for (cell in people){
             count += cell.size
         }
-        g.drawString("歩行者の総数: $count", ((x1+x2)/2 - 130).toInt(), ((y1+y2)/2).toInt())
+        var stry = ((y1+y2)/2).toInt()
+        if(isDownStr) stry -= 20
+        g.drawString("歩行者の総数: $count", ((x1+x2)/2 - 130).toInt(), stry)
 
         // cellの表示
         val cellDotLength = wayLength/people.size
