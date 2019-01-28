@@ -5,6 +5,7 @@ interface Way: Place{   // place.RailWay, place.Roadway, place.Sidewalk
     val next: Node
     val meters: Int
     val cellMaxAgents: Int
+    var isHorizontal: Boolean
 
     fun addSelfToNodes(){
         previous.ways.add(this)

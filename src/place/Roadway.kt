@@ -14,6 +14,7 @@ class Roadway(override val previous: Node, override val next: Node, override val
     override val cellMaxAgents = 1
     val cellNum = meters/100
     var vehicles: Array<ArrayList<Vehicle>>
+    override var isHorizontal = false
 
     init {
         addSelfToNodes()
@@ -56,13 +57,18 @@ class Roadway(override val previous: Node, override val next: Node, override val
 
     override fun drawSelf(g: Graphics2D) {
         val width = 10.0
-        val x1 = previous.point.x.toDouble()    // 添字1がprevious側
+        var x1 = previous.point.x.toDouble()    // 添字1がprevious側
         val x2 = next.point.x.toDouble()
         var y1 = previous.point.y.toDouble()
         var y2 = next.point.y.toDouble()
+
+        if (previous is Start && next.name == "塚口（JR）") {
+            x1 -= width*3
+        }
         y1 += if (y1<y2) Node.radius else -Node.radius
         y2 -= if (y1<y2) Node.radius else -Node.radius
         val wayLength = sqrt((x2-x1).pow(2) + (y2-y1).pow(2)).toInt()
+        val wayXLength = sqrt((x2-x1).pow(2) ).toInt()
 
 //        val X1p = x1 + width
 //        val Y1p = y1
@@ -88,8 +94,10 @@ class Roadway(override val previous: Node, override val next: Node, override val
 
         // cellの表示
         val cellDotSize = wayLength/vehicles.size
+        val cellXLength = wayXLength/vehicles.size
         for ((index, cell) in vehicles.withIndex()){
 //            val celly = y1 + index * cellDotSize // TODO: いい感じになるように座標計算
+            val cellx = if(x1<x2) x1 + index * cellXLength else x1 - (index+1) * cellXLength
             val celly = if(y1<y2) y1 + index * cellDotSize else y1 - (index+1) * cellDotSize
 
             val ratio = cell.size/cellMaxAgents.toDouble()
@@ -99,9 +107,14 @@ class Roadway(override val previous: Node, override val next: Node, override val
                 else        -> g.color = Color.ORANGE
             }
             if (cell.any { it is Bus }){ g.color = Color.PINK }
-            g.fillRect(x1.toInt(), celly.toInt(), width.toInt(), cellDotSize)
+            if (isHorizontal) {
+                g.fillRect(cellx.toInt(), celly.toInt(), cellXLength, width.toInt())
+            }else {
+                g.fillRect(cellx.toInt(), celly.toInt(), width.toInt(), cellDotSize)
+            }
+
             g.color = Color.YELLOW
-            g.drawRect(x1.toInt(), celly.toInt(), width.toInt(), cellDotSize)
+            g.drawRect(cellx.toInt(), celly.toInt(), width.toInt(), cellDotSize)
         }
     }
 }

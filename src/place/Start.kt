@@ -42,6 +42,7 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
                     person.totalCost += road.busCost
                 }
                 Strategy.NoCash  -> {}   // 乗らない
+                Strategy.ViaNishikita -> {}
             }
         }
         for (person in ridingPeople) { people.remove(person) }
@@ -84,6 +85,13 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
         for (sidewalk in sidewalks) {   // どの道を選ぶか？は以後実装予定
             for (person in people){
                 if (person.strategy == Strategy.BusOnly) continue
+                if (person.strategy == Strategy.ViaNishikita && sidewalk.next.name != "西宮北口") {
+                    continue
+                }
+                if (person.strategy == Strategy.NoCash && sidewalk.next.name != "塚口（JR）") {
+                    continue
+                }
+
                 if(sidewalk.people[0].size < sidewalk.cellMaxAgents){
                     sidewalk.people[0].add(person)
                     removingPeople.add(person)
@@ -97,7 +105,7 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
     override fun drawSelf(g: Graphics2D) {
         super.drawSelf(g)
         g.color = Color.BLUE
-        g.fillOval(point.x-Node.radius, point.y-Node.radius, Node.radius*2, Node.radius*2)
+        g.fillOval(point.x-Node.radius*3, point.y-Node.radius, Node.radius*4, Node.radius*2)
     }
 
 }

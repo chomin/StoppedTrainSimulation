@@ -9,6 +9,7 @@ import kotlin.math.sqrt
 class Sidewalk(override val previous: Node, override val next: Node, override val meters: Int) : Way {
 
     override val cellMaxAgents = 50
+    override var isHorizontal = false
     var people: Array<ArrayList<Person>>
     val cellNum = meters/100
 
@@ -62,13 +63,36 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
     override fun drawSelf(g: Graphics2D) {
 
         val width = 10.0
-        val x1 = previous.point.x.toDouble()    // 添字1がprevious側
-        val x2 = next.point.x.toDouble()
+        var x1 = previous.point.x.toDouble()    // 添字1がprevious側
+        var x2 = next.point.x.toDouble()
         var y1 = previous.point.y.toDouble()
         var y2 = next.point.y.toDouble()
-        y1 += if (y1<y2) Node.radius else -Node.radius
-        y2 -= if (y1<y2) Node.radius else -Node.radius
+
+        if (previous is Start && next.name == "塚口（JR）") {
+            x1 -= width*3
+        }
+
+        if (isHorizontal) {
+            // Roadwayと被らないよう左にずらす
+            y1 -= width
+            y2 -= width
+
+            x1 += if (x1<x2) Node.radius else -Node.radius
+            x2 -= if (x1<x2) Node.radius else -Node.radius
+        } else {
+            // Roadwayと被らないよう左にずらす
+            x1 -= width
+            x2 -= width
+
+            y1 += if (y1<y2) Node.radius else -Node.radius
+            y2 -= if (y1<y2) Node.radius else -Node.radius
+        }
+
         val wayLength = sqrt((x2-x1).pow(2) + (y2-y1).pow(2)).toInt()
+        val wayXLength = sqrt((x2-x1).pow(2) ).toInt()
+
+
+
 
 //        val X1p = x1
 //        val Y1p = y1
@@ -90,13 +114,15 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
         for (cell in people){
             count += cell.size
         }
-        g.drawString("歩行者の総数: " + count, ((x1+x2)/2 - 130).toInt(), ((y1+y2)/2).toInt())
+        g.drawString("歩行者の総数: $count", ((x1+x2)/2 - 130).toInt(), ((y1+y2)/2).toInt())
 
         // cellの表示
-        val cellDotSize = wayLength/people.size
+        val cellDotLength = wayLength/people.size
+        val cellXLength = wayXLength/people.size
         for ((index, cell) in people.withIndex()){
 //            val celly = y1 + index * cellDotSize // TODO: いい感じになるように座標計算
-            val celly = if(y1<y2) y1 + index * cellDotSize else y1 - (index+1) * cellDotSize
+            val cellx = if(x1<x2) x1 + index * cellXLength else x1 - (index+1) * cellXLength
+            val celly = if(y1<y2) y1 + index * cellDotLength else y1 - (index+1) * cellDotLength
 
             val ratio = cell.size/cellMaxAgents.toDouble()
             when{
@@ -104,9 +130,19 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
                 ratio > 0.7 -> g.color = Color.RED
                 else        -> g.color = Color.ORANGE
             }
-            g.fillRect(x1.toInt()-width.toInt(), celly.toInt(), width.toInt(), cellDotSize)
+//            g.fillRect(x1.toInt()-width.toInt(), celly.toInt(), width.toInt(), cellDotSize)
+            if (isHorizontal) {
+                g.fillRect(cellx.toInt(), y1.toInt(), cellDotLength, width.toInt())
+            }else {
+                g.fillRect(cellx.toInt(), celly.toInt(), width.toInt(), cellDotLength)
+            }
             g.color = Color(0, 125, 125)
-            g.drawRect(x1.toInt()-width.toInt(), celly.toInt(), width.toInt(), cellDotSize)
+            if (isHorizontal) {
+                g.drawRect(cellx.toInt(), y1.toInt(), cellDotLength, width.toInt())
+            }else {
+                g.drawRect(cellx.toInt(), celly.toInt(), width.toInt(), cellDotLength)
+            }
+
         }
     }
 }

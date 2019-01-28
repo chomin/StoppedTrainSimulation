@@ -4,7 +4,7 @@ import place.Station
 import java.awt.Point
 
 enum class Strategy{
-    Normal(), BusOnly(), NoCash()
+    Normal(), BusOnly(), NoCash(), ViaNishikita(), AmagasakiBus(), AmagasakiWalk()
 }
 
 class Person(val money: Int, val vitarity: Int, val cleverness: Int, val strategy: Strategy): Agent {

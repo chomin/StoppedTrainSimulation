@@ -27,7 +27,12 @@ interface Node: Place{
         val font0 = g.font
         val font = Font("DailogInput",Font.BOLD,16)
         g.font = font
-        g.drawString(name, point.x+10, point.y-60)
+        if (name == "塚口（JR）") {
+            g.drawString(name, point.x-100, point.y-60)
+        } else {
+            g.drawString(name, point.x+10, point.y-60)
+        }
+
         g.font = font0
         g.drawString("人数: " + people.size, point.x+10, point.y-30)
         g.drawString("車の数: " + waitingVehicles.size, point.x+10, point.y+30)

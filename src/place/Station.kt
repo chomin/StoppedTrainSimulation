@@ -15,6 +15,7 @@ class Station(override var name: String, override var point: Point): Node {
     val nexts = ArrayList<Way>()
     val maxPeopleNum = 150
     val maxTrainNum = 1
+    var startTime = 0
     val waitingTrains   = ArrayList<Pair<RailWay, Train   >>()
     override val waitingVehicles = ArrayList<Pair<Roadway, Vehicle >>()
 
@@ -59,6 +60,7 @@ class Station(override var name: String, override var point: Point): Node {
     }
 
     override fun generateTrains(time: Int) {
+        if (time<startTime) return
         val nextRails = nexts.filter { it is RailWay }.map { it as RailWay }
 
         loop@ for (railWay in nextRails) {   // すべての道に対しnumずつ生成
