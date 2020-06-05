@@ -10,7 +10,7 @@ import javax.swing.JPanel
 import javax.swing.JTextArea
 import kotlin.collections.ArrayList
 
-class SimulationView internal constructor(private val places: ArrayList<Place>) : JPanel(){
+class SimulationView internal constructor(private val places: ArrayList<Place>) : JPanel() {
 
     var time = 0
 
@@ -23,9 +23,9 @@ class SimulationView internal constructor(private val places: ArrayList<Place>) 
         g.background = Color.LIGHT_GRAY
         g.clearRect(0, 0, width, height)
 
-        g.drawString("開始からの時間：$time", width/2, font.size)
+        g.drawString("開始からの時間：$time", width / 2, font.size)
 
-        for (place in places){
+        for (place in places) {
             place.drawSelf(g)
         }
 

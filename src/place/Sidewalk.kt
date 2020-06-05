@@ -11,7 +11,7 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
     override val cellMaxAgents = 50
     override var isHorizontal = false
     var people: Array<ArrayList<Person>>
-    val cellNum = meters/100
+    val cellNum = meters / 100
     var isDownStr = false // 文字被り対策
 
     init {
@@ -20,43 +20,47 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
     }
 
     override fun checkAllAgents(time: Int) {
-        for (i in 0 until cellNum){
-            val index = cellNum-i-1 // cellのindex.後ろから探索.
-            if(index == cellNum-1) { // 最後のマス
+        for (i in 0 until cellNum) {
+            val index = cellNum - i - 1 // cellのindex.後ろから探索.
+            if (index == cellNum - 1) { // 最後のマス
                 val removingPeople = ArrayList<Person>()
 
 //                if (next is Station) {
 //                    println("SidewalkからStationへ")
 //                    println(next.people.size)
 //                }
-                for(person in people[index]){
-                    if (next is Goal){ // 人がnextに移動
+                for (person in people[index]) {
+                    if (next is Goal) { // 人がnextに移動
                         next.people.add(person)
                         removingPeople.add(person)
                         person.arrivedTime = time
                     } else { // nextはStation
                         val nextSta = next as Station
-                        if (nextSta.people.size < nextSta.maxPeopleNum){
+                        if (nextSta.people.size < nextSta.maxPeopleNum) {
                             nextSta.people.add(person)
                             removingPeople.add(person)
                         }
                     }
                     val t = next.people.size
                 }
-                for(person in removingPeople){ people[index].remove(person) } // 移動したものを消去
+                for (person in removingPeople) {
+                    people[index].remove(person)
+                } // 移動したものを消去
 //                if (next is Station) {
 //                    println(next.people.size)
 //                }
 
             } else {
                 val removingPeople = ArrayList<Person>()
-                for(person in people[index]){
-                    if (people[index+1].size < cellMaxAgents){ // 人を進める
-                        people[index+1].add(person)
+                for (person in people[index]) {
+                    if (people[index + 1].size < cellMaxAgents) { // 人を進める
+                        people[index + 1].add(person)
                         removingPeople.add(person)
                     }
                 }
-                for(person in removingPeople){ people[index].remove(person) } // 移動したものを除去
+                for (person in removingPeople) {
+                    people[index].remove(person)
+                } // 移動したものを除去
             }
         }
     }
@@ -70,7 +74,7 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
         var y2 = next.point.y.toDouble()
 
         if (previous is Start && next.name == "塚口（JR）") {
-            x1 -= width*3
+            x1 -= width * 3
         }
 
         if (isHorizontal) {
@@ -78,21 +82,19 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
             y1 -= width
             y2 -= width
 
-            x1 += if (x1<x2) Node.radius else -Node.radius
-            x2 -= if (x1<x2) Node.radius else -Node.radius
+            x1 += if (x1 < x2) Node.radius else -Node.radius
+            x2 -= if (x1 < x2) Node.radius else -Node.radius
         } else {
             // Roadwayと被らないよう左にずらす
             x1 -= width
             x2 -= width
 
-            y1 += if (y1<y2) Node.radius else -Node.radius
-            y2 -= if (y1<y2) Node.radius else -Node.radius
+            y1 += if (y1 < y2) Node.radius else -Node.radius
+            y2 -= if (y1 < y2) Node.radius else -Node.radius
         }
 
-        val wayLength = sqrt((x2-x1).pow(2) + (y2-y1).pow(2)).toInt()
-        val wayXLength = sqrt((x2-x1).pow(2) ).toInt()
-
-
+        val wayLength = sqrt((x2 - x1).pow(2) + (y2 - y1).pow(2)).toInt()
+        val wayXLength = sqrt((x2 - x1).pow(2)).toInt()
 
 
 //        val X1p = x1
@@ -112,37 +114,37 @@ class Sidewalk(override val previous: Node, override val next: Node, override va
 
         g.color = Color.BLACK
         var count = 0
-        for (cell in people){
+        for (cell in people) {
             count += cell.size
         }
-        var stry = ((y1+y2)/2).toInt()
-        if(isDownStr) stry -= 20
-        g.drawString("歩行者の総数: $count", ((x1+x2)/2 - 130).toInt(), stry)
+        var stry = ((y1 + y2) / 2).toInt()
+        if (isDownStr) stry -= 20
+        g.drawString("歩行者の総数: $count", ((x1 + x2) / 2 - 130).toInt(), stry)
 
         // cellの表示
-        val cellDotLength = wayLength/people.size
-        val cellXLength = wayXLength/people.size
-        for ((index, cell) in people.withIndex()){
+        val cellDotLength = wayLength / people.size
+        val cellXLength = wayXLength / people.size
+        for ((index, cell) in people.withIndex()) {
 //            val celly = y1 + index * cellDotSize // TODO: いい感じになるように座標計算
-            val cellx = if(x1<x2) x1 + index * cellXLength else x1 - (index+1) * cellXLength
-            val celly = if(y1<y2) y1 + index * cellDotLength else y1 - (index+1) * cellDotLength
+            val cellx = if (x1 < x2) x1 + index * cellXLength else x1 - (index + 1) * cellXLength
+            val celly = if (y1 < y2) y1 + index * cellDotLength else y1 - (index + 1) * cellDotLength
 
-            val ratio = cell.size/cellMaxAgents.toDouble()
-            when{
+            val ratio = cell.size / cellMaxAgents.toDouble()
+            when {
                 ratio < 0.3 -> g.color = Color.BLUE
                 ratio > 0.7 -> g.color = Color.RED
-                else        -> g.color = Color.ORANGE
+                else -> g.color = Color.ORANGE
             }
 //            g.fillRect(x1.toInt()-width.toInt(), celly.toInt(), width.toInt(), cellDotSize)
             if (isHorizontal) {
                 g.fillRect(cellx.toInt(), y1.toInt(), cellDotLength, width.toInt())
-            }else {
+            } else {
                 g.fillRect(cellx.toInt(), celly.toInt(), width.toInt(), cellDotLength)
             }
             g.color = Color(0, 125, 125)
             if (isHorizontal) {
                 g.drawRect(cellx.toInt(), y1.toInt(), cellDotLength, width.toInt())
-            }else {
+            } else {
                 g.drawRect(cellx.toInt(), celly.toInt(), width.toInt(), cellDotLength)
             }
 

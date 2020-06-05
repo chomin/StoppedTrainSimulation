@@ -27,7 +27,7 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
         val ran = Random()
         for (person in people) {
             if (ridingPeople.size > Bus.maxPeople) break
-            when (person.strategy){
+            when (person.strategy) {
                 Strategy.Normal -> {
                     val tmp = ran.nextInt(2)
                     when (tmp) {
@@ -39,12 +39,14 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
                 }
                 Strategy.BusOnly -> {
 //                    if (road.next.name == "塚口（JR）") {
-                        ridingPeople.add(person)
-                        person.totalCost += road.busCost
+                    ridingPeople.add(person)
+                    person.totalCost += road.busCost
 //                    }
                 }
-                Strategy.NoCash  -> {}   // 乗らない
-                Strategy.ViaNishikita -> {}
+                Strategy.NoCash -> {
+                }   // 乗らない
+                Strategy.ViaNishikita -> {
+                }
 
 //                Strategy.AmagasakiBus -> {
 //                    if (road.next.name == "尼崎") {
@@ -52,10 +54,13 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
 //                        person.totalCost += road.busCost
 //                    }
 //                }
-                Strategy.AmagasakiWalk -> {}
+                Strategy.AmagasakiWalk -> {
+                }
             }
         }
-        for (person in ridingPeople) { people.remove(person) }
+        for (person in ridingPeople) {
+            people.remove(person)
+        }
 
         val bus = Bus(ridingPeople)
         if (road.vehicles[0].size < road.cellMaxAgents && waitingVehicles.none { it.first == road }) {
@@ -69,7 +74,11 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
 
         val roads = ways.filter { it is Roadway }.map { it as Roadway }
 
-        roads.forEach { if( time%it.busFreq==0 ){ generateACar(it) }}
+        roads.forEach {
+            if (time % it.busFreq == 0) {
+                generateACar(it)
+            }
+        }
     }
 
     override fun generateTrains(time: Int) { // 運行再開用
@@ -82,32 +91,36 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
      */
     override fun checkAllAgents(time: Int) {
         val removingVP = ArrayList<Pair<Roadway, Vehicle>>()
-        for (vehiclePair in waitingVehicles){
+        for (vehiclePair in waitingVehicles) {
             if (vehiclePair.first.vehicles[0].size < vehiclePair.first.cellMaxAgents) {
                 vehiclePair.first.vehicles[0].add(vehiclePair.second)
                 removingVP.add(vehiclePair)
             }
         }
-        for (vehiclePair in removingVP){ waitingVehicles.remove(vehiclePair) }
+        for (vehiclePair in removingVP) {
+            waitingVehicles.remove(vehiclePair)
+        }
 
         val sidewalks = ways.filter { it is Sidewalk }.map { it as Sidewalk }
         val removingPeople = ArrayList<Person>()
         for (sidewalk in sidewalks) {   // どの道を選ぶか？は以後実装予定
-            for (person in people){
+            for (person in people) {
 //                if (person.strategy == Strategy.BusOnly || person.strategy == Strategy.AmagasakiBus) continue
                 if (person.strategy == Strategy.BusOnly) continue
-                if (person.strategy == Strategy.ViaNishikita && sidewalk.next.name != "西宮北口")     continue
-                if (person.strategy == Strategy.NoCash && sidewalk.next.name != "塚口（JR）")         continue
-                if (person.strategy == Strategy.AmagasakiWalk && sidewalk.next.name != "尼崎")       continue
+                if (person.strategy == Strategy.ViaNishikita && sidewalk.next.name != "西宮北口") continue
+                if (person.strategy == Strategy.NoCash && sidewalk.next.name != "塚口（JR）") continue
+                if (person.strategy == Strategy.AmagasakiWalk && sidewalk.next.name != "尼崎") continue
 
 
 
-                if(sidewalk.people[0].size < sidewalk.cellMaxAgents){
+                if (sidewalk.people[0].size < sidewalk.cellMaxAgents) {
                     sidewalk.people[0].add(person)
                     removingPeople.add(person)
                 }
             }
-            for (person in removingPeople){ people.remove(person) }
+            for (person in removingPeople) {
+                people.remove(person)
+            }
         }
 
     }
@@ -115,7 +128,7 @@ class Start(override var point: Point, override val people: ArrayList<Person>) :
     override fun drawSelf(g: Graphics2D) {
         super.drawSelf(g)
         g.color = Color.BLUE
-        g.fillOval(point.x-Node.radius*3, point.y-Node.radius, Node.radius*4, Node.radius*2)
+        g.fillOval(point.x - Node.radius * 3, point.y - Node.radius, Node.radius * 4, Node.radius * 2)
     }
 
 }

@@ -1,5 +1,5 @@
 package agent
 
-interface Agent{
+interface Agent {
 
 }

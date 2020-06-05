@@ -7,7 +7,8 @@ import javax.swing.JFrame
 import javax.swing.JPanel
 import javax.swing.border.EmptyBorder
 
-class SimulationFrame internal constructor(private val places: ArrayList<Place>, private val peopleNum: Int): JFrame(), ActionListener, Runnable{
+class SimulationFrame internal constructor(private val places: ArrayList<Place>, private val peopleNum: Int) : JFrame(),
+    ActionListener, Runnable {
 
     private val contentPane: JPanel
     private var kissOfDeath = false
@@ -19,9 +20,7 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>,
     val button = JButton("start")
 
 
-
     init {
-
 
 
         defaultCloseOperation = JFrame.EXIT_ON_CLOSE
@@ -45,7 +44,7 @@ class SimulationFrame internal constructor(private val places: ArrayList<Place>,
 
     override fun actionPerformed(e: ActionEvent?) {
         if (e?.source == button) {
-            when(kissOfDeath){
+            when (kissOfDeath) {
                 true -> {
                     kissOfDeath = false
                     button.text = "start"

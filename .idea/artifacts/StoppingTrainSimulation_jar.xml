@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="StoppingTrainSimulation:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/StoppingTrainSimulation_jar</output-path>
+    <root id="archive" name="StoppingTrainSimulation.jar">
+      <element id="module-output" name="StoppingTrainSimulation" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/plugins/Kotlin/kotlinc/lib/kotlin-stdlib.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/plugins/Kotlin/kotlinc/lib/kotlin-reflect.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/plugins/Kotlin/kotlinc/lib/kotlin-test.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/plugins/Kotlin/kotlinc/lib/kotlin-stdlib-jdk7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/plugins/Kotlin/kotlinc/lib/kotlin-stdlib-jdk8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
