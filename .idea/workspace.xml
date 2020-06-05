@@ -7,23 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44058e08-0963-4584-85cb-e08762632695" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/StoppingTrainSimulation_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulationFrame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationFrame.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulationView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agent/Agent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/agent/Agent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agent/Person.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/agent/Person.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Goal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Goal.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Node.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Node.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Place.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/RailWay.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/RailWay.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Roadway.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Roadway.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Sidewalk.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Sidewalk.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Start.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Start.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Station.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Station.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/place/Way.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/place/Way.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +43,12 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548646281411" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -132,7 +123,7 @@
       <workItem from="1548681193788" duration="37000" />
       <workItem from="1548681997344" duration="822000" />
       <workItem from="1591365596011" duration="285000" />
-      <workItem from="1591365918407" duration="1154000" />
+      <workItem from="1591365918407" duration="2360000" />
     </task>
     <task id="LOCAL-00001" summary="初コミット">
       <created>1544576202489</created>
@@ -293,26 +284,26 @@
     </state>
     <state x="459" y="198" key="#com.intellij.ide.util.TreeClassChooserDialog/-1253.-1057.1920.1057/0.23.1280.739@0.23.1280.739" timestamp="1591366551560" />
     <state x="459" y="198" key="#com.intellij.ide.util.TreeClassChooserDialog/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591367047722" />
-    <state width="1238" height="181" key="GridCell.Tab.0.bottom" timestamp="1591366797547">
+    <state width="1238" height="181" key="GridCell.Tab.0.bottom" timestamp="1591367113954">
       <screen x="0" y="23" width="1280" height="740" />
     </state>
     <state width="1238" height="181" key="GridCell.Tab.0.bottom/-1253.-1057.1920.1057/0.23.1280.739@0.23.1280.739" timestamp="1591366643504" />
-    <state width="1238" height="181" key="GridCell.Tab.0.bottom/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591366797547" />
-    <state width="1238" height="181" key="GridCell.Tab.0.center" timestamp="1591366797546">
+    <state width="1238" height="181" key="GridCell.Tab.0.bottom/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591367113954" />
+    <state width="1238" height="181" key="GridCell.Tab.0.center" timestamp="1591367113951">
       <screen x="0" y="23" width="1280" height="740" />
     </state>
     <state width="1238" height="181" key="GridCell.Tab.0.center/-1253.-1057.1920.1057/0.23.1280.739@0.23.1280.739" timestamp="1591366643503" />
-    <state width="1238" height="181" key="GridCell.Tab.0.center/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591366797546" />
-    <state width="1238" height="181" key="GridCell.Tab.0.left" timestamp="1591366797545">
+    <state width="1238" height="181" key="GridCell.Tab.0.center/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591367113951" />
+    <state width="1238" height="181" key="GridCell.Tab.0.left" timestamp="1591367113951">
       <screen x="0" y="23" width="1280" height="740" />
     </state>
     <state width="1238" height="181" key="GridCell.Tab.0.left/-1253.-1057.1920.1057/0.23.1280.739@0.23.1280.739" timestamp="1591366643502" />
-    <state width="1238" height="181" key="GridCell.Tab.0.left/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591366797545" />
-    <state width="1238" height="181" key="GridCell.Tab.0.right" timestamp="1591366797547">
+    <state width="1238" height="181" key="GridCell.Tab.0.left/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591367113951" />
+    <state width="1238" height="181" key="GridCell.Tab.0.right" timestamp="1591367113953">
       <screen x="0" y="23" width="1280" height="740" />
     </state>
     <state width="1238" height="181" key="GridCell.Tab.0.right/-1253.-1057.1920.1057/0.23.1280.739@0.23.1280.739" timestamp="1591366643503" />
-    <state width="1238" height="181" key="GridCell.Tab.0.right/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591366797547" />
+    <state width="1238" height="181" key="GridCell.Tab.0.right/-1253.-1057.1920.1057/0.23.1280.740@0.23.1280.740" timestamp="1591367113953" />
     <state x="111" y="23" key="SettingsEditor" timestamp="1591367077010">
       <screen x="0" y="23" width="1280" height="740" />
     </state>
